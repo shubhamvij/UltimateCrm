@@ -1,0 +1,23 @@
+{
+  "name": "ultimatecrm",
+  "version": "1.0.0",
+  "description": "Who needs SalesForce",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamvij/UltimateCrm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamvij/UltimateCrm/issues"
+  },
+  "homepage": "https://github.com/shubhamvij/UltimateCrm#readme"
+}
