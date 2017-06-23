@@ -1,10 +1,18 @@
 "use strict";
 
+const env     = require("../config/env");
+var db        = {};
 var fs        = require("fs");
 var path      = require("path");
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize('database', 'username', 'password', { host: 'localhost', dialect: 'mysql' });
-var db        = {};
+var sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DATABASE_PASSWORD, {
+  host: env.DATABASE_HOST,
+  dialect: env.DATABASE_DIALECT,
+  define: {
+    underscored: true,
+    timestamps: false
+  }
+});
 
 fs
   .readdirSync(__dirname)
@@ -15,6 +23,7 @@ fs
     var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
