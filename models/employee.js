@@ -2,7 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Employee = sequelize.define("employee", {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     username: DataTypes.STRING,
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
@@ -12,12 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     department_id: DataTypes.STRING,
     fax: DataTypes.STRING,
     office_address: DataTypes.STRING,
-    email: DataTypes.STRING    
+    email: DataTypes.STRING
   });
 
-  Employee.associate = function(models) {
-    Employee.belongsTo(models.Department);
-  }
-  
   return Employee;
 };
