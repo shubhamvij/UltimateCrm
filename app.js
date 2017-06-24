@@ -16,7 +16,12 @@ console.log("Loaded Environment Information:");
 console.log(env);
 console.log("--------------");
 
-models.employee.findAll().then(admins => {
+
+
+models.employee.findAll({ include: [ { model: models.department } ] }).then(admins => {
   console.log(`Found ${admins.length} matching records.`);
+  for(curr_admin of admins) {
+  	console.log(curr_admin.get({ plain: true }));
+  }
   console.log("--------------");
 });

@@ -1,18 +1,17 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var department = sequelize.define("department", {
+  var distributor = sequelize.define("distributor", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
     name: DataTypes.STRING,
+    size: DataTypes.INTEGER,
+    distribution_channel: DataTypes.STRING,
+    reputation: DataTypes.INTEGER,
     description: DataTypes.TEXT('long')
   });
 
-  department.associate = function(models) {
-    department.hasMany(models.employee);
-  }
-
-  return department;
+  return distributor;
 };

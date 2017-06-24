@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var department = sequelize.define("department", {
+  var contact_type = sequelize.define("contact_type", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
@@ -10,9 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.TEXT('long')
   });
 
-  department.associate = function(models) {
-    department.hasMany(models.employee);
+  contact_type.associate = function(models) {
+    contact_type.hasMany(models.contact_detail);
   }
 
-  return department;
+  return contact_type;
 };
