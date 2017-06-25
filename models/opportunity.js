@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: 'account_manager_id'
     });
     opportunity.belongsTo(models.generation_type, {
-      foreignKey: 'generated_through'
+      foreignKey: 'generated_through_id'
     });
   }
 

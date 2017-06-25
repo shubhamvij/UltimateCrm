@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: 'account_manager_id'
     });
     customer.belongsTo(models.generation_type, {
-      foreignKey: 'generated_through'
+      foreignKey: 'generated_through_id'
     });
     customer.hasMany(models.customer_contact_record);
     customer.hasMany(models.customer_information);
