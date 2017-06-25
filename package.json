@@ -4,6 +4,7 @@
   "description": "Who needs SalesForce",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mysql2": "^1.3.5",
     "sequelize": "^4.2.0"
