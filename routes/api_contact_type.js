@@ -2,7 +2,7 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/contact_type', function(req, res) {
+    app.get('/api/contact_types', function(req, res) {
         models.contact_type.findAll().then(function(contact_type) {
             res.header('Content-Type', 'application/json');
             res.json(contact_type);

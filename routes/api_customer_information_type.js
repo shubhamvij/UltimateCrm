@@ -2,47 +2,47 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/contact_details', function(req, res) {
-        models.contact_detail.findAll().then(function(contact_detail) {
+    app.get('/api/companies', function(req, res) {
+        models.company.findAll().then(function(companies) {
             res.header('Content-Type', 'application/json');
-            res.json(contact_detail);
+            res.json(companies);
         });
     });
 
-    app.get('/api/contact_detail/:id', function(req, res) {
+    app.get('/api/company/:id', function(req, res) {
         const id = req.params.id;
-        models.contact_detail.find({
+        models.company.find({
             where: {
                 id: id
             }
-        }).then(function(contact_detail) {
-            if (contact_detail == null) {
+        }).then(function(company) {
+            if (company == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No contact_detail found with ID provided.',
+                        'message': 'No company found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'contact_detail_id'
+                        'value': 'company_id'
                     }
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(contact_detail);
+                res.json(company);
             }
         })
     });
 
-    app.post('/api/contact_detail', function(req, res) {
-        models.contact_detail.create({
-            contact_type_id: req.body.contact_type_id,
-            subject: req.body.subject,
-            start_date_time: req.body.start_date_time,
-            end_date_time: req.body.end_date_time,
+    app.post('/api/company', function(req, res) {
+        models.company.create({
+            name: req.body.name,
             description: req.body.description,
-            notes: req.body.notes
-        }).then(function(contact_detail) {
+            phone: req.body.phone,
+            website: req.body.website,
+            country: req.body.country,
+            account_manager_id: req.body.account_manager_id
+        }).then(function(company) {
             res.header('Content-Type', 'application/json');
-            res.json(contact_detail);
+            res.json(company);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -52,7 +52,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your contact_detail, please try again.',
+                        'message': 'There was an error when creating your company, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -62,27 +62,27 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/contact_detail/:id', function(req, res) {
+    app.patch('/api/company/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.contact_detail.findOne({
+        models.company.findOne({
             where: {
                 id: id
             }
-        }).then(function(contact_detail) {
-            if (contact_detail == null) {
+        }).then(function(company) {
+            if (company == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No contact_detail found with ID provided.',
+                        'message': 'No company found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'contact_detail_id'
+                        'value': 'company_id'
                     }
                 });
             } else {
-                return contact_detail.updateAttributes(updates).then(function(contact_detail) {
+                return company.updateAttributes(updates).then(function(company) {
                     res.header('Content-Type', 'application/json');
-                    res.json(contact_detail);
+                    res.json(company);
                 });
             }
         }).catch(function(error) {
@@ -104,15 +104,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/contact_detail/:id', function(req, res) {
+    app.delete('/api/company/:id', function(req, res) {
         const id = req.params.id;
-        models.contact_detail.destroy({
+        models.company.destroy({
             where: {
                 id: id
             }
-        }).then(function(contact_detail) {
+        }).then(function(company) {
             res.header('Content-Type', 'application/json');
-            res.json(contact_detail);
+            res.json(company);
         });
     });
 
