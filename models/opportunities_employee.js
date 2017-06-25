@@ -18,7 +18,6 @@ module.exports = function(sequelize, DataTypes) {
     opportunities_employee.belongsTo(models.generation_type, {
       foreignKey: 'generated_through_id'
     });
-    opportunities_employee.belongsTo(models.contact_detail);
   }
 
   return opportunities_employee;

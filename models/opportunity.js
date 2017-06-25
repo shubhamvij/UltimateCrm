@@ -28,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     opportunity.belongsTo(models.generation_type, {
       foreignKey: 'generated_through_id'
     });
+    opportunity.hasMany(models.opportunity_contact_record);
   }
 
   return opportunity;
