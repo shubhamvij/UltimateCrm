@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   contact_type.associate = function(models) {
-    contact_type.hasMany(models.contact_detail);
+    contact_type.hasMany(models.opportunity_contact_record);
+    contact_type.hasMany(models.customer_contact_record);
   }
 
   return contact_type;

@@ -2,47 +2,43 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/contact_details', function(req, res) {
-        models.contact_detail.findAll().then(function(contact_detail) {
+    app.get('/api/generation_types', function(req, res) {
+        models.generation_type.findAll().then(function(generation_types) {
             res.header('Content-Type', 'application/json');
-            res.json(contact_detail);
+            res.json(generation_types);
         });
     });
 
-    app.get('/api/contact_detail/:id', function(req, res) {
+    app.get('/api/generation_type/:id', function(req, res) {
         const id = req.params.id;
-        models.contact_detail.find({
+        models.generation_type.find({
             where: {
                 id: id
             }
-        }).then(function(contact_detail) {
-            if (contact_detail == null) {
+        }).then(function(generation_type) {
+            if (generation_type == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No contact_detail found with ID provided.',
+                        'message': 'No generation_type found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'contact_detail_id'
+                        'value': 'generation_type_id'
                     }
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(contact_detail);
+                res.json(generation_type);
             }
         })
     });
 
-    app.post('/api/contact_detail', function(req, res) {
-        models.contact_detail.create({
-            contact_type_id: req.body.contact_type_id,
-            subject: req.body.subject,
-            start_date_time: req.body.start_date_time,
-            end_date_time: req.body.end_date_time,
-            description: req.body.description,
-            notes: req.body.notes
-        }).then(function(contact_detail) {
+    app.post('/api/generation_type', function(req, res) {
+        models.generation_type.create({
+            name: req.body.name,
+            description: req.body.description
+        }).then(function(generation_type) {
             res.header('Content-Type', 'application/json');
-            res.json(contact_detail);
+            res.json(generation_type);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -52,7 +48,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your contact_detail, please try again.',
+                        'message': 'There was an error when creating your generation_type, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -62,27 +58,27 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/contact_detail/:id', function(req, res) {
+    app.patch('/api/generation_type/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.contact_detail.findOne({
+        models.generation_type.findOne({
             where: {
                 id: id
             }
-        }).then(function(contact_detail) {
-            if (contact_detail == null) {
+        }).then(function(generation_type) {
+            if (generation_type == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No contact_detail found with ID provided.',
+                        'message': 'No generation_type found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'contact_detail_id'
+                        'value': 'contact_type_id'
                     }
                 });
             } else {
-                return contact_detail.updateAttributes(updates).then(function(contact_detail) {
+                return generation_type.updateAttributes(updates).then(function(generation_type) {
                     res.header('Content-Type', 'application/json');
-                    res.json(contact_detail);
+                    res.json(generation_type);
                 });
             }
         }).catch(function(error) {
@@ -94,7 +90,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your employee, please try again.',
+                        'message': 'There was an error when creating your generation type, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -104,15 +100,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/contact_detail/:id', function(req, res) {
+    app.delete('/api/generation_type/:id', function(req, res) {
         const id = req.params.id;
-        models.contact_detail.destroy({
+        models.generation_type.destroy({
             where: {
                 id: id
             }
-        }).then(function(contact_detail) {
+        }).then(function(generation_type) {
             res.header('Content-Type', 'application/json');
-            res.json(contact_detail);
+            res.json(generation_type);
         });
     });
 

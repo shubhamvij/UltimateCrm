@@ -16,9 +16,8 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: 'account_manager_id'
     });
     opportunities_employee.belongsTo(models.generation_type, {
-      foreignKey: 'generated_through'
+      foreignKey: 'generated_through_id'
     });
-    opportunities_employee.belongsTo(models.contact_detail);
   }
 
   return opportunities_employee;
