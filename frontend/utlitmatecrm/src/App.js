@@ -2,67 +2,74 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './material.css';
-import Notes from './Notes';
-import Emails from './Emails';
-import SalesAndPredictions from './SalesAndPredictions';
-import CustomerStrategy from './CustomerStrategy';
-import CustomerInfo from './CustomerInfo';
 
+import CustomerProfileView from './CustomerProfileView';
+import AccountsView from './Views/AccountsView/AccountsView';
+import ForecastsView from './Views/ForecastsView/ForecastsView';
+import HomeView from './Views/HomeView/HomeView';
+import IssueView from './Views/IssueView/IssueView';
+import StratManagementView from './Views/StratManagementView/StratManagementView';
+
+class ActiveView extends Component {
+
+    render() {
+        const viewName = this.props.activeViewName;
+        if (viewName === 'Accounts') {
+            return <CustomerProfileView />;
+          } else if (viewName === 'Strategy') {
+            return <StratManagementView />;
+          } else if (viewName === 'Forecasts') {
+            return <ForecastsView />;
+          } else if (viewName === 'Issue') {
+            return <IssueView />;
+          } else 
+          return <HomeView />;
+  }
+}   
+  
 
 class App extends Component {
+
+  state = {currentView: 'Home'}
+  componentDidMount() {
+     this.setState({currentView: 'Home'});
+  }
+
+  handleLoginClick(btn) {
+    this.setState({currentView: btn});
+    console.log(this.state.currentView);
+  }
+
+        
   render() {
+
     return (
       
-        
         <div className="app">
         
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
             <div className="App-header-content">
-                <button className="mdc-button mdc-button--accent">
+                <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Home')}>
                     Home
                 </button>
-                <button className="mdc-button mdc-button--accent">
+                <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Accounts')}>
                     Accounts
                 </button>
-            <button className="mdc-button mdc-button--accent">
+            <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Strategy')}>
                     Strategy Management
                 </button>
-            <button className="mdc-button mdc-button--accent">
+            <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Forecasts')}>
                     Forecasts
                 </button>
-            <button className="mdc-button mdc-button--accent">
+            <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Issue')}>
                     Issue Management
                 </button>
             </div>
 
         </div>
         
-    <div className="mdc-layout-grid">
-          <div className="mdc-layout-grid__inner">
-            <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                <CustomerInfo></CustomerInfo>
-            </div>
-            <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-                <CustomerStrategy></CustomerStrategy>
-            </div>
-          </div>
-       </div>    
-        
-      <div className="mdc-layout-grid">
-          <div className="mdc-layout-grid__inner">
-            <div className="mdc-layout-grid__cell">
-                <Notes></Notes>
-            </div>
-            <div className="mdc-layout-grid__cell">
-                <Emails></Emails>
-            </div>
-            <div className="mdc-layout-grid__cell">
-                <SalesAndPredictions></SalesAndPredictions>
-            </div>
-          </div>
-       </div>
-        
+        <ActiveView activeViewName={this.state.currentView} />
         
       </div>
     );
