@@ -21,7 +21,7 @@ class Notes extends Component {
                     Photos
                     <span className="mdc-list-item__text__secondary">Jan 9, 2014</span>
                   </span>
-                  <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info" onclick="event.preventDefault();">
+                  <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info">
                     info
                   </a>
                 </li>
@@ -30,7 +30,7 @@ class Notes extends Component {
                     Photos
                     <span className="mdc-list-item__text__secondary">Jan 9, 2014</span>
                   </span>
-                  <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info" onclick="event.preventDefault();">
+                  <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info">
                     info
                   </a>
                 </li>
