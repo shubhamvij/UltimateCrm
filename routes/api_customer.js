@@ -74,7 +74,8 @@ module.exports = function(app) {
             generated_through_id: req.body.generated_through_id,
             est_lifetime_value: req.body.est_lifetime_value,
             amt_purchased: req.body.amt_purchased,
-            notes: req.body.notes
+            notes: req.body.notes,
+            customer_type_id: req.body.customer_type_id
         }).then(function(customer) {
             res.header('Content-Type', 'application/json');
             res.json(customer);

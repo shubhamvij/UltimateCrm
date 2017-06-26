@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
 
   customer_review.associate = function(models) {
     customer_review.belongsTo(models.customer);
+    customer_review.belongsTo(models.product);
   }
 
   return customer_review;

@@ -7,13 +7,15 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     customer_id: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER,
+    account_manager_id: DataTypes.INTEGER,
+    total: DataTypes.DECIMAL(15, 2),
     date: DataTypes.DATE
   });
 
   order.associate = function(models) {
     order.belongsTo(models.customer);
+    order.belongsTo(models.employee, { foreignKey: 'account_manager_id' });
+    order.hasMany(models.order_line_item);
   }
 
   return order;

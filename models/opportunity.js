@@ -12,7 +12,6 @@ module.exports = function(sequelize, DataTypes) {
     currency: DataTypes.STRING(5),
     expected_close_date: DataTypes.DATEONLY,
     approximate_worth: DataTypes.DECIMAL(15, 2),
-    opportunitiescol: DataTypes.STRING,
     generated_through_id: DataTypes.INTEGER,
     probability: DataTypes.DECIMAL(5, 2),
     next_steps: DataTypes.TEXT('long'),
