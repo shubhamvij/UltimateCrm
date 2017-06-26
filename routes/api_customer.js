@@ -1,20 +1,61 @@
 var models = require('../models');
 var express = require('express');
 
+// findAll({ include: [{ all: true }]}) can be used instead of that whole loading array, but the array is used because we want to associations of associations
+
+var include_array = [{
+        model: models.company
+    },
+    {
+        model: models.customer_type
+    },
+    {
+        model: models.employee
+    },
+    {
+        model: models.generation_type
+    },
+    {
+        model: models.customer_contact_record,
+        include: [{
+                model: models.employee
+            },
+            {
+                model: models.contact_type
+            }
+        ]
+    },
+    {
+        model: models.customer_information,
+        include: [{
+            model: models.customer_information_type
+        }]
+    },
+    {
+        model: models.customer_review,
+        include: [{
+            model: models.product
+        }]
+    },
+    {
+        model: models.order,
+        include: [{
+                model: models.employee
+            },
+            {
+                model: models.order_line_item,
+                include: [{
+                    model: models.product
+                }]
+            }
+        ]
+    }
+];
+
 module.exports = function(app) {
     app.get('/api/customers', function(req, res) {
         models.customer.findAll({
-            include: [
-                {
-                    model: models.customer_contact_record
-                },
-                {
-                    model: models.customer_information
-                },
-                {
-                    model: models.customer_review
-                }
-            ]
+            include: include_array
         }).then(function(customers) {
             res.header('Content-Type', 'application/json');
             res.json(customers);
@@ -27,17 +68,7 @@ module.exports = function(app) {
             where: {
                 id: id
             },
-            include: [
-                {
-                    model: models.customer_contact_record
-                },
-                {
-                    model: models.customer_information
-                },
-                {
-                    model: models.customer_review
-                }
-            ]
+            include: include_array
         }).then(function(customer) {
             if (customer == null) {
                 res.status(400).json({
@@ -151,16 +182,14 @@ module.exports = function(app) {
             res.json(customer);
         });
     });
-    
+
     app.get('/api/customer/:id/regression', function(req, res) {
         const id = req.params.id;
         models.customer.findOne({
             where: {
                 id: id
             },
-            include: [{
-                model: models.order
-            }]
+            include: include_array
         }).then(function(customer) {
             if (customer == null) {
                 res.status(400).json({
