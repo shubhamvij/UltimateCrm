@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import './material.css';
 
-import CustomerProfileView from './CustomerProfileView';
+import CustomerProfileView from './Views/CustomerProfileView/CustomerProfileView';
 import AccountsView from './Views/AccountsView/AccountsView';
 import ForecastsView from './Views/ForecastsView/ForecastsView';
 import HomeView from './Views/HomeView/HomeView';

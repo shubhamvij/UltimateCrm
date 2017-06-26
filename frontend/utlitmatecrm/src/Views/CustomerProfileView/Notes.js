@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import './material.css';
+import '../../material.css';
 
-class SalesAndPredictions extends Component {
+class Notes extends Component {
   render() {
     const style = {
       margin: 20,
@@ -12,8 +12,9 @@ class SalesAndPredictions extends Component {
     }
 
     return (
-      <div className="mdc-list-group mdc-elevation--z2">
-              <h3 className="mdc-list-group__subheader">Past Sales</h3>
+        <div className= "note-container">
+            <div className="mdc-list-group mdc-elevation--z2">
+              <h3 className="mdc-list-group__subheader">Notes</h3>
               <ul className="mdc-list mdc-list--two-line mdc-list--avatar-list two-line-avatar-text-icon-demo">
                 <li className="mdc-list-item">
                   <span className="mdc-list-item__text">
@@ -24,26 +25,28 @@ class SalesAndPredictions extends Component {
                     info
                   </a>
                 </li>
-              </ul>
-              <div className="mdc-list-divider mdc-list-divider--inset"> </div>
-              <h3 className="mdc-list-group__subheader">Future Predictions</h3>
-              <ul className="mdc-list mdc-list--two-line mdc-list--avatar-list two-line-avatar-text-icon-demo">
-                <li className="mdc-list-item">
-                  <span className="mdc-list-item__start-detail grey-bg" role="presentation">
-                    <i className="material-icons" aria-hidden="true">insert_drive_file</i>
-                  </span>
+        <li className="mdc-list-item">
                   <span className="mdc-list-item__text">
-                    Vacation Itinerary
-                    <span className="mdc-list-item__text__secondary">Jan 10, 2014</span>
+                    Photos
+                    <span className="mdc-list-item__text__secondary">Jan 9, 2014</span>
                   </span>
                   <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info">
                     info
                   </a>
                 </li>
+                
               </ul>
             </div>
+            <div className="new-note">
+                <button className="mdc-fab mdc-fab--plain material-icons new-note-btn" aria-label="favorite">
+                    <span className="mdc-fab__icon">
+                        favorite
+                    </span>
+                </button>
+            </div>
+        </div>
     )
   }
 }
 
-export default SalesAndPredictions;
+export default Notes;

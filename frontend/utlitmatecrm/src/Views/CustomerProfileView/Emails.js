@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import './material.css';
-import './material-icon.css'
+import '../../material.css';
+import '../../material-icon.css'
 
 
 class Emails extends Component {
