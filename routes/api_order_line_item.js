@@ -2,72 +2,62 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/customer_contact_records', function(req, res) {
-        models.customer_contact_record.findAll({
+    app.get('/api/order_line_items', function(req, res) {
+        models.order_line_item.findAll({
             include: [
                 {
-                    model: models.customer
+                    model: models.order
                 },
                 {
-                    model: models.employee
-                },
-                {
-                    model: models.contact_type
+                    model: models.product
                 }
             ]
-        }).then(function(customer_contact_record) {
+        }).then(function(order_line_items) {
             res.header('Content-Type', 'application/json');
-            res.json(customer_contact_record);
+            res.json(order_line_items);
         });
     });
 
-    app.get('/api/customer_contact_record/:id', function(req, res) {
+    app.get('/api/order_line_item/:id', function(req, res) {
         const id = req.params.id;
-        models.customer_contact_record.find({
+        models.order_line_item.find({
             where: {
                 id: id
             },
             include: [
                 {
-                    model: models.customer
+                    model: models.order
                 },
                 {
-                    model: models.employee
-                },
-                {
-                    model: models.contact_type
+                    model: models.product
                 }
             ]
-        }).then(function(customer_contact_record) {
-            if (customer_contact_record == null) {
+        }).then(function(order_line_item) {
+            if (order_line_item == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No customer_contact_record found with ID provided.',
+                        'message': 'No order_line_item found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'company_address_id'
+                        'value': 'order_line_item_id'
                     }
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(customer_contact_record);
+                res.json(order_line_item);
             }
         })
     });
 
-    app.post('/api/customer_contact_record', function(req, res) {
-        models.customer_contact_record.create({
-            customer_id: req.body.customer_id,
-            employee_id: req.body.employee_id,
-            contact_type_id: req.body.contact_type_id,
-            subject: req.body.subject,
-            start_date_time: req.body.start_date_time,
-            end_date_time: req.body.end_date_time,
-            description: req.body.description,
-            notes: req.body.notes
-        }).then(function(customer_contact_record) {
+    app.post('/api/order_line_item', function(req, res) {
+        models.order_line_item.create({
+            product_id: req.body.product_id,
+            quantity: req.body.quantity,
+            price: req.body.price,
+            order_id: req.body.order_id
+        }).then(function(order_line_item) {
             res.header('Content-Type', 'application/json');
-            res.json(customer_contact_record);
+            res.json(order_line_item);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -77,7 +67,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your customer_contact_record, please try again.',
+                        'message': 'There was an error when creating your order_line_item, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -87,38 +77,35 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/customer_contact_record/:id', function(req, res) {
+    app.patch('/api/order_line_item/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.customer_contact_record.findOne({
+        models.order_line_item.findOne({
             where: {
                 id: id
             },
             include: [
                 {
-                    model: models.customer
+                    model: models.order
                 },
                 {
-                    model: models.employee
-                },
-                {
-                    model: models.contact_type
+                    model: models.product
                 }
             ]
-        }).then(function(customer_contact_record) {
-            if (customer_contact_record == null) {
+        }).then(function(order_line_item) {
+            if (order_line_item == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No customer_contact_record found with ID provided.',
+                        'message': 'No order_line_item found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
                         'value': 'company_address_id'
                     }
                 });
             } else {
-                return customer_contact_record.updateAttributes(updates).then(function(customer_contact_record) {
+                return order_line_item.updateAttributes(updates).then(function(order_line_item) {
                     res.header('Content-Type', 'application/json');
-                    res.json(customer_contact_record);
+                    res.json(order_line_item);
                 });
             }
         }).catch(function(error) {
@@ -130,7 +117,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your customer_contact_record, please try again.',
+                        'message': 'There was an error when creating your order_line_item, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -140,15 +127,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/customer_contact_record/:id', function(req, res) {
+    app.delete('/api/order_line_item/:id', function(req, res) {
         const id = req.params.id;
-        models.customer_contact_record.destroy({
+        models.order_line_item.destroy({
             where: {
                 id: id
             }
-        }).then(function(customer_contact_record) {
+        }).then(function(order_line_item) {
             res.header('Content-Type', 'application/json');
-            res.json(customer_contact_record);
+            res.json(order_line_item);
         });
     });
 

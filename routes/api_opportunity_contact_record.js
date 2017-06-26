@@ -2,9 +2,12 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/customer_contact_records', function(req, res) {
-        models.customer_contact_record.findAll({
+    app.get('/api/opportunity_contact_records', function(req, res) {
+        models.opportunity_contact_records.findAll({
             include: [
+                {
+                    model: models.opportunity
+                },
                 {
                     model: models.customer
                 },
@@ -15,20 +18,23 @@ module.exports = function(app) {
                     model: models.contact_type
                 }
             ]
-        }).then(function(customer_contact_record) {
+        }).then(function(opportunity_contact_records) {
             res.header('Content-Type', 'application/json');
-            res.json(customer_contact_record);
+            res.json(opportunity_contact_records);
         });
     });
 
-    app.get('/api/customer_contact_record/:id', function(req, res) {
+    app.get('/api/opportunity_contact_record/:id', function(req, res) {
         const id = req.params.id;
-        models.customer_contact_record.find({
+        models.opportunity_contact_record.find({
             where: {
                 id: id
             },
             include: [
                 {
+                    model: models.opportunity
+                },
+                {
                     model: models.customer
                 },
                 {
@@ -38,11 +44,11 @@ module.exports = function(app) {
                     model: models.contact_type
                 }
             ]
-        }).then(function(customer_contact_record) {
-            if (customer_contact_record == null) {
+        }).then(function(opportunity_contact_record) {
+            if (opportunity_contact_record == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No customer_contact_record found with ID provided.',
+                        'message': 'No opportunity_contact_record found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
                         'value': 'company_address_id'
@@ -50,13 +56,14 @@ module.exports = function(app) {
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(customer_contact_record);
+                res.json(opportunity_contact_record);
             }
         })
     });
 
-    app.post('/api/customer_contact_record', function(req, res) {
-        models.customer_contact_record.create({
+    app.post('/api/opportunity_contact_record', function(req, res) {
+        models.opportunity_contact_record.create({
+            opportunity_id: req.body.opportunity_id,
             customer_id: req.body.customer_id,
             employee_id: req.body.employee_id,
             contact_type_id: req.body.contact_type_id,
@@ -65,9 +72,9 @@ module.exports = function(app) {
             end_date_time: req.body.end_date_time,
             description: req.body.description,
             notes: req.body.notes
-        }).then(function(customer_contact_record) {
+        }).then(function(opportunity_contact_record) {
             res.header('Content-Type', 'application/json');
-            res.json(customer_contact_record);
+            res.json(opportunity_contact_record);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -77,7 +84,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your customer_contact_record, please try again.',
+                        'message': 'There was an error when creating your opportunity_contact_record, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -87,14 +94,17 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/customer_contact_record/:id', function(req, res) {
+    app.patch('/api/opportunity_contact_record/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.customer_contact_record.findOne({
+        models.opportunity_contact_record.findOne({
             where: {
                 id: id
             },
             include: [
+                {
+                    model: models.opportunity
+                },
                 {
                     model: models.customer
                 },
@@ -105,20 +115,20 @@ module.exports = function(app) {
                     model: models.contact_type
                 }
             ]
-        }).then(function(customer_contact_record) {
-            if (customer_contact_record == null) {
+        }).then(function(opportunity_contact_record) {
+            if (opportunity_contact_record == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No customer_contact_record found with ID provided.',
+                        'message': 'No opportunity_contact_record found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
                         'value': 'company_address_id'
                     }
                 });
             } else {
-                return customer_contact_record.updateAttributes(updates).then(function(customer_contact_record) {
+                return opportunity_contact_record.updateAttributes(updates).then(function(opportunity_contact_record) {
                     res.header('Content-Type', 'application/json');
-                    res.json(customer_contact_record);
+                    res.json(opportunity_contact_record);
                 });
             }
         }).catch(function(error) {
@@ -130,7 +140,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your customer_contact_record, please try again.',
+                        'message': 'There was an error when creating your opportunity_contact_record, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -140,15 +150,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/customer_contact_record/:id', function(req, res) {
+    app.delete('/api/opportunity_contact_record/:id', function(req, res) {
         const id = req.params.id;
-        models.customer_contact_record.destroy({
+        models.opportunity_contact_record.destroy({
             where: {
                 id: id
             }
-        }).then(function(customer_contact_record) {
+        }).then(function(opportunity_contact_record) {
             res.header('Content-Type', 'application/json');
-            res.json(customer_contact_record);
+            res.json(opportunity_contact_record);
         });
     });
 

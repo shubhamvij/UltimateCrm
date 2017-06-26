@@ -1,17 +1,18 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var distributor = sequelize.define("distributor", {
+  var customer_type = sequelize.define("customer_type", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
     name: DataTypes.STRING,
-    size: DataTypes.INTEGER,
-    distribution_channel: DataTypes.STRING,
-    reputation: DataTypes.INTEGER,
     description: DataTypes.TEXT('long')
   });
 
-  return distributor;
+  customer_type.associate = function(models) {
+    customer_type.hasMany(models.customer);
+  }
+
+  return customer_type;
 };

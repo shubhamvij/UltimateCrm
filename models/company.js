@@ -23,7 +23,6 @@ module.exports = function(sequelize, DataTypes) {
     company.hasMany(models.company_prediction);
     company.hasMany(models.customer);
     company.hasMany(models.opportunity);
-    company.hasMany(models.opportunities_employee);
   }
 
   return company;

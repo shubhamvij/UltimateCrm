@@ -7,17 +7,14 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     opportunity_id: DataTypes.INTEGER,
-    customer_id: DataTypes.INTEGER
+    customer_id: DataTypes.INTEGER,
+    account_manager_id: DataTypes.INTEGER
   });
 
   opportunities_employee.associate = function(models) {
-    opportunities_employee.belongsTo(models.company);
-    opportunities_employee.belongsTo(models.employee, {
-      foreignKey: 'account_manager_id'
-    });
-    opportunities_employee.belongsTo(models.generation_type, {
-      foreignKey: 'generated_through_id'
-    });
+    opportunities_employee.belongsTo(models.customer);
+    opportunities_employee.belongsTo(models.opportunity);
+    opportunities_employee.belongsTo(models.employee, { foreignKey: 'account_manager_id' })
   }
 
   return opportunities_employee;
