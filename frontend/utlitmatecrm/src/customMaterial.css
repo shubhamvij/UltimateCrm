@@ -1,0 +1,119 @@
+.strategy-containter {
+    text-align: left;
+}
+.strategy-containter-date {
+    text-align: right;
+}
+.new-note {
+  position: relative;
+    align-content: flex-end;
+    text-align: right;
+  height: 10px;
+}
+
+.new-note-btn {
+    position: absolute;
+    right: 0px !important;
+    bottom: -20px;
+}
+
+.note-container {
+    text-align: center;
+}
+.hero .demo-card {
+      background-color: white;
+    }
+
+    .hero {
+      min-height: 480px;
+    }
+
+    .demo-card {
+      /* 350sp */
+      margin-bottom: 48px;
+    }
+
+    @media(min-width: 768px) {
+      .demo-card {
+        margin-bottom: 24px;
+      }
+    }
+
+    .demo-card--with-avatar .mdc-card__primary {
+      position: relative;
+    }
+
+    .demo-card--with-avatar .demo-card__avatar {
+      position: absolute;
+      background: #bdbdbd;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 5rem;
+      /* 40sp */
+      width: 5rem;
+      /* 40sp */
+      border-radius: 50%; 
+    }
+
+.customSupportingText { 
+    margin-top: 10px !important;
+}
+.mdc-card__supporting-text {
+    text-align: left;
+}
+.mdc-card__title {
+          font-size: 1.6rem;
+            margin-top: 20px;
+
+
+}
+    .demo-card--with-avatar .mdc-card__title,
+    .demo-card--with-avatar .mdc-card__subtitle {
+      margin-left: 100px;
+        text-align: left;
+}
+
+    [dir="rtl"] .demo-card--with-avatar .mdc-card__title,
+    [dir="rtl"] .demo-card--with-avatar .mdc-card__subtitle {
+      margin-right: 56px;
+      margin-left: initial;
+    }
+
+    .demo-card__16-9-media {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 12.313rem;
+      /* 197sp, for 16:9 ratio with 350sp demo card width */
+    }
+
+    .demo-card--small .mdc-card__media {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 10.938rem;
+      /* 175sp, for 1:1 ratio with 175sp demo card width */
+    }
+
+    .demo-card--bg-demo {
+      height: 21.875rem;
+      /* 350sp */
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .demo-card--bg-demo .mdc-card__primary,
+    .demo-card--bg-demo .mdc-card__actions {
+      background: rgba(0, 0, 0, .4);
+    }
+
+    #demo-wrapper {
+      margin: 24px;
+      display: flex;
+      flex-flow: row wrap;
+      align-content: left;
+      justify-content: left;
+    }
+
+    #demo-wrapper .demo-card {
+      margin: 24px;
+      min-width: 320px;
+    }
