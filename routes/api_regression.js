@@ -27,17 +27,21 @@ module.exports = function(app) {
                     next_steps: customer.next_steps
                 };
                 if (customer.order.length > 1) {
-                    const last = customer.order[customer.order.length - 1];
-                    const secondLast = customer.order[customer.order.lenght - 2];
-                    if (last > secondLast) {
+                    const lastTotal = customer.order[customer.order.length - 1].price * customer.order[customer.order.length - 1].quantity;
+                    const secondLastTotal = customer.order[customer.order.length - 2].price * customer.order[customer.order.length - 2].quantity;
+                    const timeDiff = Math.abs(customer.order[customer.order.length - 1].date - customer.order[customer.order.length - 1].date);
+                    const fiveYears = 157784630000;
+                    if (lastTotal > secondLastTotal) {
+                        const estimatedTotal = fiveYears / timeDiff * (lastTotal - secondLastTotal) * 2.4
                         updates = {
-                            est_lifetime_value: Math.max(customer.est_lifetime_value + ((last - secondLast) * 3.4), 0),
+                            est_lifetime_value: estimatedTotal,
                             stage: "replace this",
                             next_steps: "replace this"
                         };
                     } else {
+                        const estimatedTotal = fiveYears / timeDiff * (secondLastTotal - lastTotal) * 1.3;
                         updates = {
-                            est_lifetime_value: customer.est_lifetime_value - ((secondLast - last) * 3.4),
+                            est_lifetime_value: Math.max(estimatedTotal, 0),
                             stage: "replace this",
                             next_steps: "replace this"
                         };
