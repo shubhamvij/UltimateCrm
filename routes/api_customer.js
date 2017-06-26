@@ -174,7 +174,9 @@ module.exports = function(app) {
             } else {
                 var updates = {
                     est_lifetime_value: customer.est_lifetime_value,
-                    notes: customer.notes
+                    notes: customer.notes,
+                    next_steps: customer.next_steps,
+                    stage: ""
                 };
                 if (customer.orders.length > 1) {
                     const lastTotal = parseFloat(customer.orders[customer.orders.length - 1].total);
@@ -186,15 +188,26 @@ module.exports = function(app) {
                         estimatedTotal += fiveYears / timeDiff * (lastTotal - secondLastTotal) * 1.7
                         updates = {
                             est_lifetime_value: estimatedTotal,
-                            notes: "purchases going up"
+                            notes: "Purchase totals going up.",
+                            next_steps: "Meet customer demands by being readily available to help and reaching out on a weekly basis.",
+                            stage: "Maintenance"
                         };
                     } else {
-                        estimatedTotal -= fiveYears / timeDiff * (secondLastTotal - lastTotal) * 1.3;
-                        updates = {
-                            est_lifetime_value: Math.max(estimatedTotal, 0),
-                            notes: "purchases going down"
-                        };
+                        updates.est_lifetime_value = Math.max(estimatedTotal - fiveYears / timeDiff * (secondLastTotal - lastTotal) * 1.3, 0);
+                        if (updates.est_lifetime_value > 0) {
+                            updates.notes = "Purchase totals going down.";
+                            updates.next_steps = "Determine the cause of decreased totals. Reach out regularly to ensure customer satisfaction.";
+                            updates.stage = "Recovery";
+                        } else {
+                            updates.notes = "Customer value will soon be 0 or negative.";
+                            updates.next_steps = "Cease sales and marketing efforts on the customer.";
+                            updates.stage = "Termination";
+                        }
                     }
+                } else {
+                    updates.notes = "Not enough orders to predict accurately.";
+                    updates.next_steps = "Call customer to set up more orders.";
+                    updates.stage = "Acquisition";
                 }
                 return customer.updateAttributes(updates).then(function(customer) {
                     res.header('Content-Type', 'application/json');
