@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom'
 
-import './material.css';
+import '../../material.css';
 import Notes from './Notes';
 import Emails from './Emails';
 import SalesAndPredictions from './SalesAndPredictions';

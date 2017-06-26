@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import './material.css';
+import '../../material.css';
 import './customMaterial.css';
 
 
