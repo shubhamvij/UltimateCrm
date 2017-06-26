@@ -41,6 +41,7 @@ module.exports = function(sequelize, DataTypes) {
     customer.hasMany(models.customer_information);
     customer.hasMany(models.customer_review);
     customer.hasMany(models.order);
+    customer.hasMany(models.issue);
   }
 
   return customer;

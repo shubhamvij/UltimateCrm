@@ -25,6 +25,9 @@ module.exports = function(sequelize, DataTypes) {
     employee.hasMany(models.opportunity, { foreignKey: 'account_manager_id' })
     employee.hasMany(models.opportunities_employee, { foreignKey: 'account_manager_id' })
     employee.hasMany(models.order, { foreignKey: 'account_manager_id' })
+    employee.hasMany(models.issue, { as: 'opened_by', foreignKey: 'opened_by_id' });
+    employee.hasMany(models.issue, { as: 'closed_by', foreignKey: 'closed_by_id' });
+    employee.hasMany(models.issue, { as: 'assigned_to', foreignKey: 'assigned_to_id' });
   }
 
   return employee;
