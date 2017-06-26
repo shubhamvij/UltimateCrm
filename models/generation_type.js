@@ -11,9 +11,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   generation_type.associate = function(models) {
-    generation_type.hasMany(models.customer, { foreignKey: 'generated_through' })
-    generation_type.hasMany(models.opportunity, { foreignKey: 'generated_through' })
-    generation_type.hasMany(models.opportunities_employee, { foreignKey: 'generated_through' })
+    generation_type.hasMany(models.customer, { foreignKey: 'generated_through_id' })
+    generation_type.hasMany(models.opportunity, { foreignKey: 'generated_through_id' })
   }
 
   return generation_type;

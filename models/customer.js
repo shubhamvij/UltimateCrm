@@ -22,20 +22,23 @@ module.exports = function(sequelize, DataTypes) {
     generated_through_id: DataTypes.INTEGER,
     est_lifetime_value: DataTypes.INTEGER,
     amt_purchased: DataTypes.INTEGER,
-    notes: DataTypes.TEXT('long')
+    notes: DataTypes.TEXT('long'),
+    customer_type_id: DataTypes.INTEGER
   });
 
   customer.associate = function(models) {
     customer.belongsTo(models.company);
+    customer.belongsTo(models.customer_type);
     customer.belongsTo(models.employee, {
       foreignKey: 'account_manager_id'
     });
     customer.belongsTo(models.generation_type, {
-      foreignKey: 'generated_through'
+      foreignKey: 'generated_through_id'
     });
     customer.hasMany(models.customer_contact_record);
     customer.hasMany(models.customer_information);
     customer.hasMany(models.customer_review);
+    customer.hasMany(models.order);
   }
 
   return customer;

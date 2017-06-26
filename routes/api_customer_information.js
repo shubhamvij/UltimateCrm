@@ -2,31 +2,41 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/company_addresses', function(req, res) {
-        models.company_address.findAll({
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_address) {
+    app.get('/api/customer_informations', function(req, res) {
+        models.customer_information.findAll({
+            include: [
+                {
+                    model: models.customer
+                },
+                {
+                    model: models.customer_information_type
+                }
+            ]
+        }).then(function(customer_informations) {
             res.header('Content-Type', 'application/json');
-            res.json(company_address);
+            res.json(customer_informations);
         });
     });
 
-    app.get('/api/company_address/:id', function(req, res) {
+    app.get('/api/customer_information/:id', function(req, res) {
         const id = req.params.id;
-        models.company_address.find({
+        models.customer_information.find({
             where: {
                 id: id
             },
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_address) {
-            if (company_address == null) {
+            include: [
+                {
+                    model: models.customer
+                },
+                {
+                    model: models.customer_information_type
+                }
+            ]
+        }).then(function(customer_information) {
+            if (customer_information == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No company address found with ID provided.',
+                        'message': 'No customer_information found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
                         'value': 'company_address_id'
@@ -34,24 +44,19 @@ module.exports = function(app) {
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(company_address);
+                res.json(customer_information);
             }
         })
     });
 
-    app.post('/api/company_address', function(req, res) {
-        models.company_address.create({
-            address_line_one: req.body.address_line_one,
-            address_line_two: req.body.address_line_two,
-            city: req.body.city,
-            province: req.body.province,
-            country: req.body.country,
-            postal_code: req.body.postal_code,
-            company_id: req.body.company_id,
-            address_type: req.body.address_type
-        }).then(function(company_address) {
+    app.post('/api/customer_information', function(req, res) {
+        models.customer_information.create({
+            customer_id: req.body.customer_id,
+            customer_information_type_id: req.body.customer_information_type_id,
+            value: req.body.value,
+        }).then(function(customer_information) {
             res.header('Content-Type', 'application/json');
-            res.json(company_address);
+            res.json(customer_information);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -61,7 +66,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your company_address, please try again.',
+                        'message': 'There was an error when creating your customer_information, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -71,30 +76,35 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/company_address/:id', function(req, res) {
+    app.patch('/api/customer_information/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.company_address.findOne({
+        models.customer_information.findOne({
             where: {
                 id: id
             },
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_address) {
-            if (company_address == null) {
+            include: [
+                {
+                    model: models.customer
+                },
+                {
+                    model: models.customer_information_type
+                }
+            ]
+        }).then(function(customer_information) {
+            if (customer_information == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No company_address found with ID provided.',
+                        'message': 'No customer_information found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
                         'value': 'company_address_id'
                     }
                 });
             } else {
-                return company_address.updateAttributes(updates).then(function(company_address) {
+                return customer_information.updateAttributes(updates).then(function(customer_information) {
                     res.header('Content-Type', 'application/json');
-                    res.json(company_address);
+                    res.json(customer_information);
                 });
             }
         }).catch(function(error) {
@@ -106,7 +116,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your company address, please try again.',
+                        'message': 'There was an error when creating your customer_information, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -116,15 +126,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/company_address/:id', function(req, res) {
+    app.delete('/api/customer_information/:id', function(req, res) {
         const id = req.params.id;
-        models.company_address.destroy({
+        models.customer_information.destroy({
             where: {
                 id: id
             }
-        }).then(function(company_address) {
+        }).then(function(customer_information) {
             res.header('Content-Type', 'application/json');
-            res.json(company_address);
+            res.json(customer_information);
         });
     });
 

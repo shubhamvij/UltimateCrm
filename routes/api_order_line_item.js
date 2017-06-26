@@ -2,52 +2,62 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/company_predictions', function(req, res) {
-        models.company_prediction.findAll({
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_predictions) {
+    app.get('/api/order_line_items', function(req, res) {
+        models.order_line_item.findAll({
+            include: [
+                {
+                    model: models.order
+                },
+                {
+                    model: models.product
+                }
+            ]
+        }).then(function(order_line_items) {
             res.header('Content-Type', 'application/json');
-            res.json(company_predictions);
+            res.json(order_line_items);
         });
     });
 
-    app.get('/api/company_prediction/:id', function(req, res) {
+    app.get('/api/order_line_item/:id', function(req, res) {
         const id = req.params.id;
-        models.company_prediction.find({
+        models.order_line_item.find({
             where: {
                 id: id
             },
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_prediction) {
-            if (company_prediction == null) {
+            include: [
+                {
+                    model: models.order
+                },
+                {
+                    model: models.product
+                }
+            ]
+        }).then(function(order_line_item) {
+            if (order_line_item == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No company_prediction found with ID provided.',
+                        'message': 'No order_line_item found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'company_prediction_id'
+                        'value': 'order_line_item_id'
                     }
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(company_prediction);
+                res.json(order_line_item);
             }
         })
     });
 
-    app.post('/api/company_prediction', function(req, res) {
-        models.company_prediction.create({
-            name: req.body.name,
-            value: req.body.value,
-            date_predicted: req.body.date_predicted,
-            company_id: req.body.company_id
-        }).then(function(company_prediction) {
+    app.post('/api/order_line_item', function(req, res) {
+        models.order_line_item.create({
+            product_id: req.body.product_id,
+            quantity: req.body.quantity,
+            price: req.body.price,
+            order_id: req.body.order_id
+        }).then(function(order_line_item) {
             res.header('Content-Type', 'application/json');
-            res.json(company_prediction);
+            res.json(order_line_item);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -57,7 +67,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your company_prediction, please try again.',
+                        'message': 'There was an error when creating your order_line_item, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -67,30 +77,35 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/company_prediction/:id', function(req, res) {
+    app.patch('/api/order_line_item/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.company_prediction.findOne({
+        models.order_line_item.findOne({
             where: {
                 id: id
             },
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_prediction) {
-            if (company_prediction == null) {
+            include: [
+                {
+                    model: models.order
+                },
+                {
+                    model: models.product
+                }
+            ]
+        }).then(function(order_line_item) {
+            if (order_line_item == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No company_prediction found with ID provided.',
+                        'message': 'No order_line_item found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'department_id'
+                        'value': 'company_address_id'
                     }
                 });
             } else {
-                return company_prediction.updateAttributes(updates).then(function(company_prediction) {
+                return order_line_item.updateAttributes(updates).then(function(order_line_item) {
                     res.header('Content-Type', 'application/json');
-                    res.json(company_prediction);
+                    res.json(order_line_item);
                 });
             }
         }).catch(function(error) {
@@ -102,7 +117,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your company prediction, please try again.',
+                        'message': 'There was an error when creating your order_line_item, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -112,15 +127,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/company_prediction/:id', function(req, res) {
+    app.delete('/api/order_line_item/:id', function(req, res) {
         const id = req.params.id;
-        models.company_prediction.destroy({
+        models.order_line_item.destroy({
             where: {
                 id: id
             }
-        }).then(function(company_prediction) {
+        }).then(function(order_line_item) {
             res.header('Content-Type', 'application/json');
-            res.json(company_prediction);
+            res.json(order_line_item);
         });
     });
 

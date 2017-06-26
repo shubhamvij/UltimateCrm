@@ -2,52 +2,68 @@ var models = require('../models');
 var express = require('express');
 
 module.exports = function(app) {
-    app.get('/api/company_predictions', function(req, res) {
-        models.company_prediction.findAll({
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_predictions) {
+    app.get('/api/orders', function(req, res) {
+        models.order.findAll({
+            include: [
+                {
+                    model: models.customer
+                },
+                {
+                    model: models.employee
+                },
+                {
+                    model: models.order_line_item
+                }
+            ]
+        }).then(function(orders) {
             res.header('Content-Type', 'application/json');
-            res.json(company_predictions);
+            res.json(orders);
         });
     });
 
-    app.get('/api/company_prediction/:id', function(req, res) {
+    app.get('/api/order/:id', function(req, res) {
         const id = req.params.id;
-        models.company_prediction.find({
+        models.order.find({
             where: {
                 id: id
             },
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_prediction) {
-            if (company_prediction == null) {
+            include: [
+                {
+                    model: models.customer
+                },
+                {
+                    model: models.employee
+                },
+                {
+                    model: models.order_line_item
+                }
+            ]
+        }).then(function(order) {
+            if (order == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No company_prediction found with ID provided.',
+                        'message': 'No order found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'company_prediction_id'
+                        'value': 'order_id'
                     }
                 });
             } else {
                 res.header('Content-Type', 'application/json');
-                res.json(company_prediction);
+                res.json(order);
             }
         })
     });
 
-    app.post('/api/company_prediction', function(req, res) {
-        models.company_prediction.create({
-            name: req.body.name,
-            value: req.body.value,
-            date_predicted: req.body.date_predicted,
-            company_id: req.body.company_id
-        }).then(function(company_prediction) {
+    app.post('/api/order', function(req, res) {
+        models.order.create({
+            customer_id: req.body.customer_id,
+            account_manager_id: req.body.account_manager_id,
+            total: req.body.total,
+            date: req.body.date
+        }).then(function(order) {
             res.header('Content-Type', 'application/json');
-            res.json(company_prediction);
+            res.json(order);
         }).catch(function(error) {
             console.log(error);
             if (error.hasOwnProperty('errors')) {
@@ -57,7 +73,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your company_prediction, please try again.',
+                        'message': 'There was an error when creating your order, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -67,30 +83,38 @@ module.exports = function(app) {
         });
     });
 
-    app.patch('/api/company_prediction/:id', function(req, res) {
+    app.patch('/api/order/:id', function(req, res) {
         const id = req.params.id;
         const updates = req.body.updates;
-        models.company_prediction.findOne({
+        models.order.findOne({
             where: {
                 id: id
             },
-            include: [{
-                model: models.company
-            }]
-        }).then(function(company_prediction) {
-            if (company_prediction == null) {
+            include: [
+                {
+                    model: models.customer
+                },
+                {
+                    model: models.employee
+                },
+                {
+                    model: models.order_line_item
+                }
+            ]
+        }).then(function(order) {
+            if (order == null) {
                 res.status(400).json({
                     errors: {
-                        'message': 'No company_prediction found with ID provided.',
+                        'message': 'No order found with ID provided.',
                         'type': 'incorrect_parameters',
                         'path': 'incorrect_parameters',
-                        'value': 'department_id'
+                        'value': 'company_address_id'
                     }
                 });
             } else {
-                return company_prediction.updateAttributes(updates).then(function(company_prediction) {
+                return order.updateAttributes(updates).then(function(order) {
                     res.header('Content-Type', 'application/json');
-                    res.json(company_prediction);
+                    res.json(order);
                 });
             }
         }).catch(function(error) {
@@ -102,7 +126,7 @@ module.exports = function(app) {
             } else {
                 res.status(500).json({
                     errors: {
-                        'message': 'There was an error when creating your company prediction, please try again.',
+                        'message': 'There was an error when creating your order, please try again.',
                         'type': 'unhandled_error',
                         'path': 'unhandled_error',
                         'value': ''
@@ -112,15 +136,15 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('/api/company_prediction/:id', function(req, res) {
+    app.delete('/api/order/:id', function(req, res) {
         const id = req.params.id;
-        models.company_prediction.destroy({
+        models.order.destroy({
             where: {
                 id: id
             }
-        }).then(function(company_prediction) {
+        }).then(function(order) {
             res.header('Content-Type', 'application/json');
-            res.json(company_prediction);
+            res.json(order);
         });
     });
 
