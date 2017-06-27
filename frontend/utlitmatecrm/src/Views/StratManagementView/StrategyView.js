@@ -1,4 +1,4 @@
-/**
+/**es
  * Created by jackzhang on 6/26/17.
  */
 import React, { Component } from 'react'
@@ -17,19 +17,16 @@ class StrategyView extends Component {
         return (
             <div className="mdc-elevation--z2 mdc-card__horizontal-block demo-card demo-card--with-avatar">
                 <section className="mdc-card__primary">
-                    <div className="demo-card__avatar" style={style}></div>
-                    <h1 className="mdc-card__title customTitle">Title</h1>
-                    <h2 className="mdc-card__subtitle customTitle">Subhead</h2>
+                    <h1 className="mdc-card__title customTitle">{this.props.customer.name}</h1>
+                    <h2 className="mdc-card__subtitle customTitle">{this.props.customer.description}</h2>
                 </section>
 
                 <section className="mdc-card__supporting-text customSupportingText">
-                    <p>Item 1</p>
-                    <p>Item  sdlfkls;dfl;sdl;f l;sdf;l sl;df1</p>
-                    <p>Item 1</p>
-                    <p>Item 1</p>
+                    <p>est_lifetime_value:{this.props.customer.strategies[0].est_lifetime_value}</p>
+                    <p>notes:{this.props.customer.strategies[0].notes}</p>
+                    <p>next step:{this.props.customer.strategies[0].next_steps}</p>
+                    <p>stage:{this.props.customer.strategies[0].stage}</p>
                 </section>
-
-
             </div>
         )
     }

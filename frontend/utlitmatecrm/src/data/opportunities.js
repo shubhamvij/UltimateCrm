@@ -25,8 +25,8 @@ const opportunity = [
     },
     {
         'id': '2',
-        'name': 'Jack',
-        'description': 'Distributor',
+        'name': 'John',
+        'description': 'Individual',
         'company_id': '1',
         'currency': 'CAD',
         'expected_close_date': '2017/3/10',
@@ -47,3 +47,4 @@ const opportunity = [
 ]
 
 export default opportunity;
+
