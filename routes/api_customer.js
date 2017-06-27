@@ -183,7 +183,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/api/customer/:id/regression', function(req, res) {
+    app.get('/api/customer/regression/:id', function(req, res) {
         const id = req.params.id;
         models.customer.findOne({
             where: {
@@ -240,7 +240,8 @@ module.exports = function(app) {
                 }
                 return customer.updateAttributes(updates).then(function(customer) {
                     res.header('Content-Type', 'application/json');
-                    res.json(customer);
+                    //res.json(customer);
+                    res.json(updates);
                 });
             }
         }).catch(function(error) {

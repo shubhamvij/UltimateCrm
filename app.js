@@ -3,7 +3,6 @@ const app = express();
 const env = require("./config/env");
 var bodyParser = require('body-parser');
 var models = require('./models');
-var frontend = require('./frontend/ultimatecrm/src/App')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

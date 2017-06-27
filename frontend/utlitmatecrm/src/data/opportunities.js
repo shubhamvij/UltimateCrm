@@ -16,9 +16,10 @@ const opportunity = [
         'account_manager_id': "2",
         'strategies': [
             {
-                'id': '1',
-                'stage': 'Retention',
-                'method': 'Up-sell and cross-sell'
+                "est_lifetime_value": 0,
+                "notes": "Customer value will soon be 0 or negative.",
+                "next_steps": "Cease sales and marketing efforts on the customer.",
+                "stage": "Termination"
             }
         ]
     },

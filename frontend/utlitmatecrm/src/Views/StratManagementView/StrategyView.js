@@ -8,7 +8,6 @@ import '../../material.css';
 class StrategyView extends Component {
 
     render() {
-
         const style = {
             margin: 20,
             padding: 20,
