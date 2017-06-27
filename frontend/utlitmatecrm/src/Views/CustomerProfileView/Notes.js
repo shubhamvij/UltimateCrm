@@ -2,6 +2,25 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import '../../material.css';
 
+
+class Note extends Component {
+    render() {
+        return (
+        <li className="mdc-list-item">
+            <span className="mdc-list-item__text">
+                {this.props.subject}
+                <span className="mdc-list-item__text__secondary">
+                    {this.props.description}
+                </span>
+            </span>
+            <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info">
+                info
+            </a>
+        </li>
+            );
+    }
+}
+
 class Notes extends Component {
   render() {
     const style = {
@@ -11,37 +30,22 @@ class Notes extends Component {
       backgroundColor: this.props.color,
     }
 
+
+      
+    
     return (
         <div className= "note-container">
             <div className="mdc-list-group mdc-elevation--z2">
               <h3 className="mdc-list-group__subheader">Notes</h3>
               <ul className="mdc-list mdc-list--two-line mdc-list--avatar-list two-line-avatar-text-icon-demo">
-                <li className="mdc-list-item">
-                  <span className="mdc-list-item__text">
-                    Photos
-                    <span className="mdc-list-item__text__secondary">Jan 9, 2014</span>
-                  </span>
-                  <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info">
-                    info
-                  </a>
-                </li>
-        <li className="mdc-list-item">
-                  <span className="mdc-list-item__text">
-                    Photos
-                    <span className="mdc-list-item__text__secondary">Jan 9, 2014</span>
-                  </span>
-                  <a href="#" className="mdc-list-item__end-detail material-icons" aria-label="View more information" title="More info">
-                    info
-                  </a>
-                </li>
-                
+                    {this.props.customer_contact_records.map(item => <Note subject={item.subject} description={item.description} />)}
               </ul>
             </div>
+
+        
             <div className="new-note">
                 <button className="mdc-fab mdc-fab--plain material-icons new-note-btn" aria-label="favorite">
-                    <span className="mdc-fab__icon">
-                        favorite
-                    </span>
+                        add
                 </button>
             </div>
         </div>

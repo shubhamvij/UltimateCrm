@@ -8,23 +8,26 @@ import './customMaterial.css';
 class CustomerInfo extends Component {
     
   render() {
-    const style = {
-      backgroundImage: `url(https://lh4.googleusercontent.com/-FLI32VyHh-Y/AAAAAAAAAAI/AAAAAAAAAAA/r1H413eiTfI/s80-c-k/photo.jpg)`
-    }
+   
+     let style = {
+      backgroundImage: `url(` + this.props.picture +`)`
+    }    
 
     return (
       <div className="mdc-elevation--z2 mdc-card__horizontal-block demo-card demo-card--with-avatar">
+        
         <section className="mdc-card__primary">
             <div className="demo-card__avatar" style={style}></div>
-            <h1 className="mdc-card__title customTitle">Title</h1>
-            <h2 className="mdc-card__subtitle customTitle">Subhead</h2>
+            <h1 className="mdc-card__title customTitle"> {this.props.first_name} </h1>
+            <h1 className="mdc-card__title customTitle"> {this.props.last_name} </h1>
+            <h2 className="mdc-card__subtitle customTitle"> {this.props.title} </h2>
           </section>
   
   <section className="mdc-card__supporting-text customSupportingText">
-    <p>Item 1</p>
-        <p>Item  sdlfkls;dfl;sdl;f l;sdf;l sl;df1</p>
-        <p>Item 1</p>
-        <p>Item 1</p>
+        <p>{this.props.email}</p>
+        <p>{this.props.office_phone}</p>
+        <p>{this.props.other_phone}</p>
+        <p>{this.props.description}</p>
   </section>
 
 

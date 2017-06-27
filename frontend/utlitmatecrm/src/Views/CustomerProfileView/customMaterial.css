@@ -1,3 +1,16 @@
+.custom-switch {
+position: absolute;
+    right: -1px !important;
+    bottom: -1px !important;
+}
+
+.custom-switch-container {
+    position: relative;
+    align-content: flex-end;
+    text-align: right;
+    height: 10px;
+    padding-top: 120px;
+}
 .strategy-containter {
     text-align: left;
 }
