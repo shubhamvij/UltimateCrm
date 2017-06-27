@@ -49,6 +49,25 @@ var include_array = [{
                 }]
             }
         ]
+    },
+    {
+        model: models.issue,
+        include: [{
+                model: models.employee,
+                as: 'opened_by'
+            },
+            {
+                model: models.employee,
+                as: 'closed_by'
+            },
+            {
+                model: models.employee,
+                as: 'assigned_to'
+            },
+            {
+                model: models.issue_type
+            }
+        ]
     }
 ];
 
