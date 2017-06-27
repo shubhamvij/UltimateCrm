@@ -63,6 +63,14 @@ const data =
    "first_name":"Shubham",
    "last_name": "Vij",
     "picture":  "https://lh4.googleusercontent.com/-FLI32VyHh-Y/AAAAAAAAAAI/AAAAAAAAAAA/r1H413eiTfI/s80-c-k/photo.jpg",
+    "customerIssues": [
+      {
+          "id": 5,
+          "title" : "title",
+          "desc" : "desc",
+          "date": "date",
+      }
+    ],
    "office_phone":"123-456-6677",
    "other_phone":"226-998-8876",
    "other_phone_type":"test_other_phone_type",

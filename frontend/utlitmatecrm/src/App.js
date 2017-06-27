@@ -15,6 +15,7 @@ class ActiveView extends Component {
     render() {
         const viewName = this.props.activeViewName;
         if (viewName === 'Accounts') {
+            return <AccountsView />;
             return <CustomerProfileView />;
           } else if (viewName === 'Strategy') {
             return <StratManagementView />;
