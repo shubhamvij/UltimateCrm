@@ -1775,6 +1775,28 @@
 			"responses": []
 		},
 		{
+			"id": "7c8ae84c-fe1d-24db-fe75-73400b7d8bce",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:3000/api/customer/dnn/10",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498430540969,
+			"name": "Run DNN",
+			"description": "",
+			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
+			"responses": []
+		},
+		{
 			"id": "7e4ea7fa-1b44-0623-e17b-56d720aa4603",
 			"headers": "",
 			"headerData": [],
