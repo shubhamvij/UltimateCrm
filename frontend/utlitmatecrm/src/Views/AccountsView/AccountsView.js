@@ -53,8 +53,8 @@ class NewCustomer extends Component {
               "account_manager_id":10
             },   
           })
-        })
-        this.props.modalActive();
+        }).then(() => this.props.modalActive())
+        
     }
     
     handleCustomerTypeChange(event) {
