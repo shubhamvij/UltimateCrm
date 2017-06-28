@@ -125,7 +125,8 @@ module.exports = function(app) {
             est_lifetime_value: req.body.est_lifetime_value,
             amt_purchased: req.body.amt_purchased,
             notes: req.body.notes,
-            customer_type_id: req.body.customer_type_id
+            customer_type_id: req.body.customer_type_id,
+            profile_pic: req.body.profile_pic
         }).then(function(customer) {
             res.header('Content-Type', 'application/json');
             res.json(customer);
