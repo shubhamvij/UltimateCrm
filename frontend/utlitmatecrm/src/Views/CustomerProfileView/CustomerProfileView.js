@@ -10,28 +10,41 @@ import CustomerInfo from './CustomerInfo';
 
 
 class CustomerProfileView extends Component {
+    
+  constructor() {
+  	 super();
+     this.state={customerData:{}};
+  }
+    
+
+ componentDidMount(){
+    fetch(`http://localhost:3000/api/customer/` + this.props.activeCustomerId)
+        .then(result=>result.json())
+        .then(customerData=>this.setState({customerData}))
+  }
+    
   render() {
     return (
         <div>
     <div className="mdc-layout-grid">
           <div className="mdc-layout-grid__inner">
             <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                <CustomerInfo   id={data.id}
-                                first_name={data.first_name}
-                                last_name={data.last_name}
-                                office_phone={data.office_phone}
-                                other_phone={data.other_phone}
-                                title={data.title}
-                                email={data.email}
-                                description={data.description}
-                                picture={data.picture}>
+                <CustomerInfo   id={this.state.customerData.id}
+                                first_name={this.state.customerData.first_name}
+                                last_name={this.state.customerData.last_name}
+                                office_phone={this.state.customerData.office_phone}
+                                other_phone={this.state.customerData.other_phone}
+                                title={this.state.customerData.title}
+                                email={this.state.customerData.email}
+                                description={this.state.customerData.description}
+                                picture={this.state.customerData.picture}>
                 </CustomerInfo>
             </div>
             <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-                <CustomerStrategy   stage={data.stage}
-                                    est_lifetime_value={data.est_lifetime_value}
-                                    notes={data.notes}
-                                    next_steps={data.next_steps}
+                <CustomerStrategy   stage={this.state.customerData.stage}
+                                    est_lifetime_value={this.state.customerData.est_lifetime_value}
+                                    notes={this.state.customerData.notes}
+                                    next_steps={this.state.customerData.next_steps}
                                     ></CustomerStrategy>
             </div>
           </div>
@@ -40,13 +53,13 @@ class CustomerProfileView extends Component {
       <div className="mdc-layout-grid">
           <div className="mdc-layout-grid__inner">
             <div className="mdc-layout-grid__cell">
-                <Notes  customer_contact_records={data.customer_contact_records}></Notes>
+                <Notes  customer_contact_records={this.state.customerData.customer_contact_records}></Notes>
             </div>
             <div className="mdc-layout-grid__cell">
                 <Emails></Emails>
             </div>
             <div className="mdc-layout-grid__cell">
-                <SalesAndPredictions orders={data.orders}></SalesAndPredictions>
+                <SalesAndPredictions orders={this.state.customerData.orders}></SalesAndPredictions>
             </div>
           </div>
        </div>

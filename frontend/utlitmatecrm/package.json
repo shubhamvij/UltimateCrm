@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material/dialog": "^0.3.2",
     "material-design-icons": "^3.0.1",
     "react": "^15.6.1",
     "react-bar-chart": "^0.1.2",

@@ -11,19 +11,20 @@ import IssueView from './Views/IssueView/IssueView';
 import StratManagementView from './Views/StratManagementView/StratManagementView';
 
 class ActiveView extends Component {
-
+    
     render() {
         const viewName = this.props.activeViewName;
         if (viewName === 'Accounts') {
-            return <AccountsView />;
-            return <CustomerProfileView />;
+            return <AccountsView navigateToCustomerPage={this.props.navigateToCustomerPage}/>;
           } else if (viewName === 'Strategy') {
             return <StratManagementView />;
           } else if (viewName === 'Forecasts') {
             return <ForecastsView />;
           } else if (viewName === 'Issue') {
             return <IssueView />;
-          } else 
+          } else if (viewName === 'Customer') {
+            return <CustomerProfileView activeCustomerId={this.props.activeCustomerId}/>;
+          } else  
           return <HomeView />;
   }
 }   
@@ -33,7 +34,9 @@ class App extends Component {
 
   state = {currentView: 'Home'}
   componentDidMount() {
-     this.setState({currentView: 'Home'});
+     this.setState({currentView: 'Home', activeCustomerId: "-1"}); 
+     this.navigateToCustomerPage = this.navigateToCustomerPage.bind(this);
+
   }
 
   handleLoginClick(btn) {
@@ -41,6 +44,12 @@ class App extends Component {
     console.log(this.state.currentView);
   }
 
+    
+    navigateToCustomerPage(id) {
+     this.setState({activeCustomerId: id, currentView: 'Customer'});
+    }
+
+ 
         
   render() {
 
@@ -70,7 +79,8 @@ class App extends Component {
 
         </div>
         
-        <ActiveView activeViewName={this.state.currentView} />
+        <ActiveView activeViewName={this.state.currentView} activeCustomerId={this.state.activeCustomerId} 
+                    navigateToCustomerPage={this.navigateToCustomerPage} active/>
         
       </div>
     );
