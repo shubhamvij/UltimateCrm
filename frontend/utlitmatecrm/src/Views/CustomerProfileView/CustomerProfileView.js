@@ -13,7 +13,7 @@ class CustomerProfileView extends Component {
     
   constructor() {
   	 super();
-     this.state={customerData:{}};
+     this.state={customerData:data};
   }
     
 
@@ -23,7 +23,10 @@ class CustomerProfileView extends Component {
         .then(customerData=>this.setState({customerData}))
   }
     
+  
+    
   render() {
+      console.log(this.state.customerData);
     return (
         <div>
     <div className="mdc-layout-grid">
@@ -37,7 +40,7 @@ class CustomerProfileView extends Component {
                                 title={this.state.customerData.title}
                                 email={this.state.customerData.email}
                                 description={this.state.customerData.description}
-                                picture={this.state.customerData.picture}>
+                                picture={this.state.customerData.profile_pic}>
                 </CustomerInfo>
             </div>
             <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">

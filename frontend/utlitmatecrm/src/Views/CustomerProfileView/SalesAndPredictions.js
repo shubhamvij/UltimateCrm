@@ -4,8 +4,6 @@ import '../../material.css';
 
 class Sale extends Component {
     render() {
-            console.log(this.props);
-
         return (
                 <li className="mdc-list-item">
                   <span className="mdc-list-item__text">
