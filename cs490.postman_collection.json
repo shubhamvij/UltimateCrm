@@ -1793,9 +1793,8 @@
 			"time":1498430540969,
 			"name":"Run DNN",
 			"description":"",
-			"collectionId":"82857689-4adc-40ad-9f71-7b766fa0249c",
-			"responses":[],
-			"folder":"c048e876-86c9-c092-7eb3-695cbeb4c33a"
+			"collectionId":"10dc2335-98ea-d364-1663-b81d3e476f4d",
+			"responses":[]
 		},
 		{
 			"id": "7e4ea7fa-1b44-0623-e17b-56d720aa4603",
