@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var generation_type = sequelize.define("generation_type", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     name: DataTypes.STRING,
     description: DataTypes.STRING

@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var product = sequelize.define("product", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     sku: DataTypes.INTEGER,
     trim: DataTypes.STRING,

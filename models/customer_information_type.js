@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var customer_information_type = sequelize.define("customer_information_type", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     name: DataTypes.STRING,
     description: DataTypes.STRING

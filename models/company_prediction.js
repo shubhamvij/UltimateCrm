@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var company_prediction = sequelize.define("company_prediction", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     name: DataTypes.STRING,
     value: DataTypes.DECIMAL(15, 2),
