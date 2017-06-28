@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var order_line_item = sequelize.define("order_line_item", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     product_id: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,

@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var opportunity = sequelize.define("opportunity", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     name: DataTypes.STRING,
     description: DataTypes.TEXT('long'),

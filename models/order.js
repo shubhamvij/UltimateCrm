@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var order = sequelize.define("order", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     customer_id: DataTypes.INTEGER,
     account_manager_id: DataTypes.INTEGER,

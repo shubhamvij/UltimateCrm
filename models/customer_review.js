@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var customer_review = sequelize.define("customer_review", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     source: DataTypes.STRING,
     subject: DataTypes.STRING,

@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var department = sequelize.define("department", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     name: DataTypes.STRING,
     description: DataTypes.TEXT('long')

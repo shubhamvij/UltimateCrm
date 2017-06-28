@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
   var issue = sequelize.define("issue", {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true
     },
     customer_id: DataTypes.INTEGER,
     opened_by_id: DataTypes.INTEGER,
