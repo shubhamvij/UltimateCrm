@@ -152,7 +152,8 @@
 				"7c8ae84c-fe1d-24db-fe75-73400b7d8bce",
 				"1224382e-3c50-a5fb-8550-607ade0918eb",
 				"cef25730-ce5b-e38f-d8cc-fa7f2b891d62",
-				"6c4f2743-28c1-6a9f-d57c-57eed71ef8af"
+				"6c4f2743-28c1-6a9f-d57c-57eed71ef8af",
+				"97e41eee-47d9-c01b-f663-58b569f55358"
 			],
 			"owner": "85160",
 			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
@@ -1775,28 +1776,6 @@
 			"responses": []
 		},
 		{
-			"id":"97e41eee-47d9-c01b-f663-58b569f55358",
-			"headers":"",
-			"headerData":[],
-			"url":"localhost:3000/api/customer/dnn/10",
-			"queryParams":[],
-			"preRequestScript":null,
-			"pathVariables":{},
-			"pathVariableData":[],
-			"method":"GET",
-			"data":null,
-			"dataMode":"params",
-			"version":2,
-			"tests":null,
-			"currentHelper":"normal",
-			"helperAttributes":{},
-			"time":1498430540969,
-			"name":"Run DNN",
-			"description":"",
-			"collectionId":"10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses":[]
-		},
-		{
 			"id": "7e4ea7fa-1b44-0623-e17b-56d720aa4603",
 			"headers": "",
 			"headerData": [],
@@ -2699,6 +2678,28 @@
 			"description": "",
 			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
 			"responses": []
+		},
+		{
+			"id":"97e41eee-47d9-c01b-f663-58b569f55358",
+			"headers":"",
+			"headerData":[],
+			"url":"localhost:3000/api/customer/dnn/10",
+			"queryParams":[],
+			"preRequestScript":null,
+			"pathVariables":{},
+			"pathVariableData":[],
+			"method":"GET",
+			"data":null,
+			"dataMode":"params",
+			"version":2,
+			"tests":null,
+			"currentHelper":"normal",
+			"helperAttributes":{},
+			"time":1498430540969,
+			"name":"Run DNN",
+			"description":"",
+			"collectionId":"10dc2335-98ea-d364-1663-b81d3e476f4d",
+			"responses":[]
 		},
 		{
 			"id": "d43133cc-74c6-b7ab-614e-c4885691cbde",
