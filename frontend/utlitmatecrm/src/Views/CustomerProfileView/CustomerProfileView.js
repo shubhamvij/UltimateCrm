@@ -23,8 +23,7 @@ class CustomerProfileView extends Component {
         .then(customerData=>this.setState({customerData}))
   }
     
-  
-    
+
   render() {
       console.log(this.state.customerData);
     return (

@@ -11,12 +11,67 @@ class NewCustomer extends Component {
      this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: "1", company_name: ""};
     
     this.handleCustomerTypeChange = this.handleCustomerTypeChange.bind(this);
-
+    this.createNewCustomer = this.createNewCustomer.bind(this);    
+    this.handleInputChange = this.handleInputChange.bind(this);
+    }
+    createNewCustomer() {
+        fetch('http://localhost:3000/api/customer', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            "first_name": this.state.first_name,
+           "last_name": this.state.last_name,
+            "picture":  "https://lh4.googleusercontent.com/-FLI32VyHh-Y/AAAAAAAAAAI/AAAAAAAAAAA/r1H413eiTfI/s80-c-k/photo.jpg",
+            "office_phone":"123-456-6677",
+           "other_phone":"226-998-8876",
+           "other_phone_type":"test_other_phone_type",
+           "title":"test_title",
+           "department":"test_department",
+           "company_id":5,
+           "account_manager_id":10,
+           "fax":"test_fax",
+           "email":"test_vemail",
+           "office_address":"test_office_address",
+           "description":"test_desc",
+           "generated_through_id":1,
+           "est_lifetime_value":0,
+           "amt_purchased":1,
+           "notes":"Customer value will soon be 0 or negative.",
+           "next_steps":"Cease sales and marketing efforts on the customer.",
+           "stage":"Termination",
+           "customer_type_id":1,
+           "company":{
+              "id":5,
+              "name":"new_name",
+              "description":"new_description",
+              "phone":"new_phone",
+              "website":"new_website",
+              "country":"new_country",
+              "account_manager_id":10
+            },   
+          })
+        })
+        this.props.modalActive();
     }
     
     handleCustomerTypeChange(event) {
         this.setState({customer_type_id: event.target.value});
     }
+    
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+          [name]: value
+        });
+  }
+    
+    
     render() {
         return (
             <div className="mdc-elevation--z2 modal">
@@ -34,14 +89,18 @@ class NewCustomer extends Component {
                                  type="text"
                                  placeholder="First Name"
                                  aria-label="Full-Width Textfield"
-                                 value={this.state.first_name} />
+                                 name="first_name"
+                                 value={this.state.first_name}
+                                onChange={this.handleInputChange}/>
                         </div>
                         <div className="mdc-textfield mdc-textfield--fullwidth">
                           <input className="mdc-textfield__input"
                                  type="text"
                                  placeholder="Last Name"
                                  aria-label="Full-Width Textfield"
-                                 value={this.state.last_name}/>
+                                name="last_name"
+                                 value={this.state.last_name}
+                                onChange={this.handleInputChange}/>
                         </div>
                         </div>
                 }
@@ -52,7 +111,9 @@ class NewCustomer extends Component {
                                  type="text"
                                  placeholder="Company Name"
                                  aria-label="Full-Width Textfield"
-                                 value={this.state.company_name} />
+                                name="company_name"
+                                 value={this.state.company_name}
+                                onChange={this.handleInputChange}/>
                         </div>
                         </div>
                 }
@@ -62,30 +123,38 @@ class NewCustomer extends Component {
                          type="text"
                          placeholder="Title"
                          aria-label="Full-Width Textfield" 
-                         value={this.state.title}/>
+                        name="title"
+                         value={this.state.title}
+                        onChange={this.handleInputChange}/>
                 </div>
                 <div className="mdc-textfield mdc-textfield--fullwidth">
                   <input className="mdc-textfield__input"
                          type="text"
                          placeholder="Office Phone"
                          aria-label="Full-Width Textfield" 
-                         value={this.state.office_phone}/>
+                        name="office_phone"
+                         value={this.state.office_phone}
+                        onChange={this.handleInputChange}/>
                 </div>
                 <div className="mdc-textfield mdc-textfield--fullwidth">
                   <input className="mdc-textfield__input"
                          type="text"
                          placeholder="Other Phone"
                          aria-label="Full-Width Textfield" 
-                         value={this.state.other_phone} />
+                        name="other_phone"
+                         value={this.state.other_phone} 
+                        onChange={this.handleInputChange}/>
                 </div>
                 <div className="mdc-textfield mdc-textfield--fullwidth">
                   <input className="mdc-textfield__input"
                          type="text"
                          placeholder="Email"
                          aria-label="Full-Width Textfield" 
-                         value={this.state.email}/>
+                        name="email"
+                         value={this.state.email}
+                        onChange={this.handleInputChange}/>
                 </div>
-                <button className="mdc-button mdc-button--raised">
+                <button className="mdc-button mdc-button--raised" href="#" onClick={this.createNewCustomer}>
                   Submit
                 </button>
                 <button className="mdc-button mdc-button--raised"  href="#" onClick={this.props.modalActive}>
