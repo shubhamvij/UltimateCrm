@@ -26,7 +26,8 @@ module.exports = function(sequelize, DataTypes) {
     next_steps: DataTypes.TEXT('long'),
     stage: DataTypes.STRING,
     customer_type_id: DataTypes.INTEGER,
-    dnn_notes: DataTypes.TEXT('long')
+    dnn_notes: DataTypes.TEXT('long'),
+    profile_pic: DataTypes.TEXT('long')
   });
 
   customer.associate = function(models) {
