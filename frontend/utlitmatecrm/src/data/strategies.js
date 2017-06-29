@@ -71,6 +71,26 @@ var strategies = [
                 "next_steps": "Retention surveys.",
             }
         ]
+    },
+    {
+        'id': 4,
+        'stage': 'Termination',
+        'notes': 'No new orders come in for 6 consecutive quarters.',
+        'currency': 'CAD',
+        'type': 'customer',
+        'expected_close_date': '2017/3/10',
+        'approximate_worth': "test",
+        'probability': "0.8",
+        'next_steps': "Test",
+        'account_manager_id': "2",
+        'strategies': [
+            {
+                'id': 1,
+                "notes": "Terminate gracefully.",
+                "next_steps": "Documents of termination.",
+            }
+
+        ]
     }
 ]
 

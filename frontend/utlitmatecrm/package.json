@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material/dialog": "^0.3.2",
+    "@material/form-field": "^0.2.8",
     "@material/list": "^0.2.11",
     "material-design-icons": "^3.0.1",
     "react": "^15.6.1",

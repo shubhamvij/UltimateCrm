@@ -2,6 +2,7 @@
  * Created by jackzhang on 6/27/17.
  */
 import React from 'react';
+import '../../material.css';
 
 class CommentForm extends React.Component {
     constructor(props) {
@@ -32,13 +33,14 @@ class CommentForm extends React.Component {
         this.setState({ author: '', text: '' });
         console.log(`${this.state.author} said “${this.state.text}”`);
     }
-
     render() {
         return (
         <form onSubmit={this.handleSubmit}>
             <input type = 'text' placeholder="Strategy Type" value = {this.state.author} onChange={this.handleAuthorChange} />
             <input type = 'text' placeholder="Notes" value = {this.state.text} onChange={this.handleTextChange} />
-            <input type="submit" value="Post" />
+            <button className="mdc-button" type="submit">
+                Add
+            </button>
         </form>
         )
 
