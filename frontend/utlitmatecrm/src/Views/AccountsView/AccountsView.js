@@ -37,6 +37,7 @@ class NewCustomer extends Component {
            "email":this.state.email,
            "office_address":"",
            "description":"",
+          "customer_type_id": this.state.customer_type_id,
            "company":{
               "id":5,
               "name":this.state.company_name,
@@ -124,7 +125,7 @@ class NewCustomer extends Component {
                 <div className="mdc-textfield mdc-textfield--fullwidth">
                   <input className="mdc-textfield__input"
                          type="text"
-                         placeholder="Last Name"
+                         placeholder="Profile Picture Url"
                          aria-label="Full-Width Textfield"
                         name="picture"
                          value={this.state.picture}

@@ -21,7 +21,7 @@ class ActiveView extends Component {
           } else if (viewName === 'Forecasts') {
             return <ForecastsView />;
           } else if (viewName === 'Issue') {
-            return <IssueView />;
+            return <IssueView activeCustomerId={this.props.activeCustomerId}/>;
           } else if (viewName === 'Customer') {
             return <CustomerProfileView activeCustomerId={this.props.activeCustomerId}/>;
           } else  
