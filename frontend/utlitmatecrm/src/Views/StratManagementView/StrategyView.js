@@ -4,6 +4,8 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import '../../material.css';
+import Comment from './Comment';
+import CommentBox from "./CommentBox";
 
 class StrategyView extends Component {
 
@@ -14,18 +16,22 @@ class StrategyView extends Component {
             color: 'white',
             backgroundColor: this.props.color,
         }
+        let strategies = this.props.strategy.strategies.map(strategy => {
+            return (
+                <Comment author={strategy.notes} key={strategy.id}>{strategy.next_steps}</Comment>
+            )
+        })
+
         return (
             <div className="mdc-elevation--z2 mdc-card__horizontal-block demo-card demo-card--with-avatar">
                 <section className="mdc-card__primary">
-                    <h1 className="mdc-card__title customTitle">{this.props.customer.name}</h1>
-                    <h2 className="mdc-card__subtitle customTitle">{this.props.customer.description}</h2>
+                    <h1 className="mdc-card__title customTitle">{this.props.strategy.stage}</h1>
+                    <h2 className="mdc-card__subtitle customTitle">{this.props.strategy.notes}</h2>
                 </section>
 
+
                 <section className="mdc-card__supporting-text customSupportingText">
-                    <p>est_lifetime_value:{this.props.customer.strategies[0].est_lifetime_value}</p>
-                    <p>notes:{this.props.customer.strategies[0].notes}</p>
-                    <p>next step:{this.props.customer.strategies[0].next_steps}</p>
-                    <p>stage:{this.props.customer.strategies[0].stage}</p>
+                    <CommentBox data={this.props.strategy.strategies}/>
                 </section>
             </div>
         )
