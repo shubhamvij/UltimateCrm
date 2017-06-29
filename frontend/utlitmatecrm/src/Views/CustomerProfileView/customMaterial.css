@@ -11,6 +11,21 @@ position: absolute;
     height: 10px;
     padding-top: 120px;
 }
+
+.modal {
+    width: 75%;
+    position: fixed;
+    left: 50%;
+    margin-left: -37.5%;
+    padding: 40px;
+    top: 10%;
+    background-color: white;
+}
+
+.center {
+    text-align: center;
+}
+
 .strategy-containter {
     text-align: left;
 }

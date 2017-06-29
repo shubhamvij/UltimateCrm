@@ -35,7 +35,10 @@ class CustomerStrategy extends Component {
             <div className="mdc-layout-grid__inner">
                 <div className="mdc-layout-grid__cell--span-10">
                     <div className="mdc-typography--body1"><b>Strategy</b></div>
-                    <p className="mdc-typography--body2"> {this.props.notes} </p>
+                    <div className="mdc-typography--body2"> {this.props.notes} </div>
+                    <div className="mdc-typography--body2"> {this.props.dnn_notes} </div>
+
+                    
                     <p></p>
                     <p className="mdc-typography--body2"> {this.props.next_steps} </p>
                     <button className="mdc-button mdc-button--raised">

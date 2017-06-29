@@ -47,6 +47,7 @@ class CustomerProfileView extends Component {
                                     est_lifetime_value={this.state.customerData.est_lifetime_value}
                                     notes={this.state.customerData.notes}
                                     next_steps={this.state.customerData.next_steps}
+                                    dnn_notes={this.state.dnn_notes}
                                     ></CustomerStrategy>
             </div>
           </div>
@@ -58,7 +59,7 @@ class CustomerProfileView extends Component {
                 <Notes  customer_contact_records={this.state.customerData.customer_contact_records}></Notes>
             </div>
             <div className="mdc-layout-grid__cell">
-                <Emails></Emails>
+                <Emails customer_informations={this.state.customerData.customer_informations}></Emails>
             </div>
             <div className="mdc-layout-grid__cell">
                 <SalesAndPredictions orders={this.state.customerData.orders}></SalesAndPredictions>
