@@ -7,3 +7,8 @@
     top: 10%;
     background-color: white;
 }
+
+.newAccount {
+    bottom: 25px;
+    right: 25px !important;
+}

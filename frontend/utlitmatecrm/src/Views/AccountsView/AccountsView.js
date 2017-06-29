@@ -8,7 +8,8 @@ import './accountsView.css'
 class NewCustomer extends Component {
     constructor() {
   	 super();
-     this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: "1", company_name: ""};
+     this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: "1", company_name: "", description: "",
+                 picture: ""};
     
     this.handleCustomerTypeChange = this.handleCustomerTypeChange.bind(this);
     this.createNewCustomer = this.createNewCustomer.bind(this);    
@@ -24,32 +25,25 @@ class NewCustomer extends Component {
           body: JSON.stringify({
             "first_name": this.state.first_name,
            "last_name": this.state.last_name,
-            "picture":  "https://lh4.googleusercontent.com/-FLI32VyHh-Y/AAAAAAAAAAI/AAAAAAAAAAA/r1H413eiTfI/s80-c-k/photo.jpg",
-            "office_phone":"123-456-6677",
-           "other_phone":"226-998-8876",
-           "other_phone_type":"test_other_phone_type",
-           "title":"test_title",
-           "department":"test_department",
+            "picture":  this.state.picture,
+            "office_phone": this.state.office_phone,
+           "other_phone": this.state.other_phone,
+           "other_phone_type":"",
+           "title": this.state.title,
+           "department":"",
            "company_id":5,
            "account_manager_id":10,
-           "fax":"test_fax",
-           "email":"test_vemail",
-           "office_address":"test_office_address",
-           "description":"test_desc",
-           "generated_through_id":1,
-           "est_lifetime_value":0,
-           "amt_purchased":1,
-           "notes":"Customer value will soon be 0 or negative.",
-           "next_steps":"Cease sales and marketing efforts on the customer.",
-           "stage":"Termination",
-           "customer_type_id":1,
+           "fax":"",
+           "email":this.state.email,
+           "office_address":"",
+           "description":"",
            "company":{
               "id":5,
-              "name":"new_name",
-              "description":"new_description",
-              "phone":"new_phone",
-              "website":"new_website",
-              "country":"new_country",
+              "name":this.state.company_name,
+              "description":this.state.description,
+              "phone":"",
+              "website":"",
+              "country":"",
               "account_manager_id":10
             },   
           })
@@ -115,9 +109,28 @@ class NewCustomer extends Component {
                                  value={this.state.company_name}
                                 onChange={this.handleInputChange}/>
                         </div>
+                        <div className="mdc-textfield mdc-textfield--fullwidth">
+                          <input className="mdc-textfield__input"
+                                 type="text"
+                                 placeholder="Company Description"
+                                 aria-label="Full-Width Textfield"
+                                name="description"
+                                 value={this.state.description}
+                                onChange={this.handleInputChange}/>
+                        </div>
                         </div>
                 }
                 
+                <div className="mdc-textfield mdc-textfield--fullwidth">
+                  <input className="mdc-textfield__input"
+                         type="text"
+                         placeholder="Last Name"
+                         aria-label="Full-Width Textfield"
+                        name="picture"
+                         value={this.state.picture}
+                        onChange={this.handleInputChange}/>
+                </div>
+            
                 <div className="mdc-textfield mdc-textfield--fullwidth">
                   <input className="mdc-textfield__input"
                          type="text"
@@ -225,7 +238,7 @@ class AccountsView extends Component {
                         }).map(item => <Customer clickCallback={this.clickCustomerCallback}  customerId={item.id} name={item.company.name} />)}
                     </div>
                 </div>
-                <button className="mdc-fab mdc-fab--plain material-icons new-note-btn" aria-label="favorite"
+                <button className="mdc-fab mdc-fab--plain material-icons new-note-btn newAccount" aria-label="favorite"
                         href="#" onClick={() => this.setState({newCustomer: true})}>
                         add
                 </button>
