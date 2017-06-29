@@ -9,7 +9,20 @@ import CommentBox from './CommentBox';
 
 class StratManagementView extends Component {
 
-    state = {strategy: strategies[0]};
+    constructor(props) {
+        super(props);
+        this.state = {strategy: strategies[0]};
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    }
+
+    handleCommentSubmit(comment){
+        console.log(strategies);
+        for (var i = 0; i < strategies.length; i++) {
+            if (strategies[i]['id'] == comment.parent_id) {
+                strategies[i]['strategies'].push(comment);
+            }
+        }
+    }
 
     componentDidMount() {
         this.setState({strategy: strategies[0]});
@@ -27,22 +40,24 @@ class StratManagementView extends Component {
 
     render() {
       return (
-          <div className="Strategy left">
-                  <div className="opportunity-selector">
-                      <div className="mdc-layout-grid">
-                      {strategies.map(strategy =>
-                              <div className="mdc-layout-grid__inner">
-                                  <div className="mdc-layout-grid__cell">
-                                      <div className="cell mdc-list-group mdc-elevation--z2" onClick={this.handleClick.bind(this, strategy)}>
-                                          <OpportunityOverview key={strategy.id} {...strategy} />
-                                      </div>
-                                  </div>
-                              </div>
-                      )}
-                    </div>
+          <div className="mdc-layout-grid">
+              <div className="mdc-layout-grid__inner">
+                  <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                          <div className="opportunity-selector">
+                              <div className="mdc-layout-grid">
+                              {strategies.map(strategy =>
+                                              <div className="cell mdc-list-group mdc-elevation--z2" onClick={this.handleClick.bind(this, strategy)}>
+                                                  <OpportunityOverview key={strategy.id} {...strategy} />
+                                              </div>
+                              )}
+                            </div>
+                          </div>
                   </div>
-              <div className="right">
-                  <StrategyView strategy={this.state.strategy}/>
+                  <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+                      <div className="right">
+                          <StrategyView strategy={this.state.strategy} handleCommentSubmit={this.handleCommentSubmit}/>
+                      </div>
+                  </div>
               </div>
           </div>
       );

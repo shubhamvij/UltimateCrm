@@ -4,9 +4,9 @@
 /**
  * Created by jackzhang on 6/26/17.
  */
-const strategies = [
+var strategies = [
     {
-        'id': '1',
+        'id': 1,
         'stage': 'Acquisition',
         'notes': 'Loyalty Program. Online purchases.',
         'type': 'customer',
@@ -25,7 +25,7 @@ const strategies = [
         ]
     },
     {
-        'id': '2',
+        'id': 2,
         'stage': 'Retention',
         'notes': 'Repeat customers. High value customers.',
         'currency': 'CAD',
@@ -49,7 +49,7 @@ const strategies = [
         ]
     },
     {
-        'id': '3',
+        'id': 3,
         'stage': 'Renewal',
         'notes': 'No response to retention strategies.',
         'currency': 'CAD',

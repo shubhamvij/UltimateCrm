@@ -10,6 +10,7 @@ class CommentForm extends React.Component {
         this.handleAuthorChange = this.handleAuthorChange.bind(this);
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
     handleAuthorChange(e) {
@@ -21,15 +22,22 @@ class CommentForm extends React.Component {
     }
 
     handleSubmit(e) {
-        //e.preventDefault();
+        e.preventDefault();
+        let author = this.state.author.trim();
+        let text = this.state.text.trim();
+        if (!text || !author) {
+            return;
+        }
+        this.props.onCommentSubmit({ id: Date.now(), parent_id: this.props.id, next_steps: author, notes: text });
+        this.setState({ author: '', text: '' });
         console.log(`${this.state.author} said “${this.state.text}”`);
     }
 
     render() {
         return (
-        <form onSubmit={this.handleSubmit()}>
+        <form onSubmit={this.handleSubmit}>
             <input type = 'text' placeholder="Strategy Type" value = {this.state.author} onChange={this.handleAuthorChange} />
-            <input type = 'text' placeholder="Notess" value = {this.state.text} onChange={this.handleTextChange} />
+            <input type = 'text' placeholder="Notes" value = {this.state.text} onChange={this.handleTextChange} />
             <input type="submit" value="Post" />
         </form>
         )

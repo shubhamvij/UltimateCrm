@@ -9,6 +9,15 @@ import CommentBox from "./CommentBox";
 
 class StrategyView extends Component {
 
+    constructor(props) {
+        super(props);
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    }
+
+    handleCommentSubmit(comment) {
+        this.props.handleCommentSubmit(comment);
+    }
+
     render() {
         const style = {
             margin: 20,
@@ -31,7 +40,7 @@ class StrategyView extends Component {
 
 
                 <section className="mdc-card__supporting-text customSupportingText">
-                    <CommentBox data={this.props.strategy.strategies}/>
+                    <CommentBox id={this.props.strategy.id} data={this.props.strategy.strategies} handleCommentSubmit={this.handleCommentSubmit}/>
                 </section>
             </div>
         )
