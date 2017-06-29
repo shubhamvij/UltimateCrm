@@ -27,17 +27,35 @@ class IssueView extends Component {
     this.filterItem = this.filterItem.bind(this);
   }
 
-  closeIssue() {
-     this.setState({newCustomer: false});
+  closeIssue(issueId) {
+     this.state.issues.map((item) => {
+        if(item.id === issueId){
+          console.log('test');
+          item.closed_by_id = this.props.activeCustomerId? this.props.activeCustomerId: 0;
+        }
+     });
+     this.forceUpdate();
+  }
+
+  reopenIssue(issueId){
+    this.state.issues.map((item) => {
+        if(item.id === issueId){
+          item.closed_by_id = null;
+        }
+     });
+     this.forceUpdate();
   }
 
   filterItem(item) {
+    var is_open = item.closed_by_id == null? true: false;
     if (this.state.filter === 'all'){
-      return true;
+      return is_open;
     } else if (this.state.filter === 'open_me'){
-      return item.opened_by.id == this.props.activeCustomerId? this.props.activeCustomerId: item.opened_by.id; 
+      return (item.opened_by.id == this.props.activeCustomerId? this.props.activeCustomerId: item.opened_by.id) && is_open; 
     } else if (this.state.filter === 'ass_me'){
-      return item.assigned_to.id == this.props.activeCustomerId? this.props.activeCustomerId: item.assigned_to.id;
+      return (item.assigned_to.id == this.props.activeCustomerId? this.props.activeCustomerId: item.assigned_to.id) && is_open;
+    } else if (this.state.filter === 'closed'){
+      return !is_open;
     }
   }
 
@@ -58,6 +76,9 @@ class IssueView extends Component {
                             <a className="mdc-list-item" href="#" onClick={() => this.setState({filter: 'ass_me'})}>
                               <i className="material-icons mdc-list-item__start-detail" aria-hidden="true">star</i>Assigned to me
                             </a>
+                            <a className="mdc-list-item" href="#" onClick={() => this.setState({filter: 'closed'})}>
+                              <i className="material-icons mdc-list-item__start-detail" aria-hidden="true">star</i>Closed
+                            </a>
                           </nav>
                         </nav>
                     </div>
@@ -75,7 +96,8 @@ class IssueView extends Component {
                               <p><h3>Notes:</h3>{item.issue_notes}</p>
                             </section>
                             <section className="mdc-card__actions">
-                              <button className="mdc-button mdc-button--compact mdc-card__action">Close</button>
+                              {item.closed_by_id? (<button className="mdc-button mdc-button--compact mdc-card__action" onClick={() => this.reopenIssue(item.id)}>Reopen</button>) 
+                              : (<button className="mdc-button mdc-button--compact mdc-card__action" onClick={() => this.closeIssue(item.id)}>Close</button>)}
                             </section>
                           </div>)}
                       </div>
