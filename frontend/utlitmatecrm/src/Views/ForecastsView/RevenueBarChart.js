@@ -5,8 +5,8 @@ import React from 'react';
 import BarChart from 'react-bar-chart';
 
 const data = [
-    {text: 'Man', value: 500},
-    {text: 'Woman', value: 300}
+    {text: 'Distributors', value: 500},
+    {text: 'Customers', value: 300}
 ];
 
 const margin = {top: 20, right: 20, bottom: 30, left: 40};
