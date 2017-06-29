@@ -8,7 +8,7 @@ import './accountsView.css'
 class NewCustomer extends Component {
     constructor() {
   	 super();
-     this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: "1", company_name: "", description: "",
+     this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: "4", company_name: "", description: "",
                  picture: ""};
     
     this.handleCustomerTypeChange = this.handleCustomerTypeChange.bind(this);
@@ -24,29 +24,20 @@ class NewCustomer extends Component {
           },
           body: JSON.stringify({
             "first_name": this.state.first_name,
-           "last_name": this.state.last_name,
+            "last_name": this.state.last_name,
             "picture":  this.state.picture,
             "office_phone": this.state.office_phone,
-           "other_phone": this.state.other_phone,
-           "other_phone_type":"",
-           "title": this.state.title,
-           "department":"",
-           "company_id":5,
-           "account_manager_id":10,
-           "fax":"",
-           "email":this.state.email,
-           "office_address":"",
-           "description":"",
-          "customer_type_id": this.state.customer_type_id,
-           "company":{
-              "id":5,
-              "name":this.state.company_name,
-              "description":this.state.description,
-              "phone":"",
-              "website":"",
-              "country":"",
-              "account_manager_id":10
-            },   
+            "other_phone": this.state.other_phone,
+            "other_phone_type":"",
+            "title": this.state.title,
+            "department":"",
+            "fax":"",
+            "email":this.state.email,
+            "description":"",
+            "generated_through_id": 6,
+            "customer_type_id": this.state.customer_type_id,
+            "company_id":8,
+            "account_manager_id":23
           })
         }).then(() => this.props.modalActive())
         
@@ -74,10 +65,10 @@ class NewCustomer extends Component {
                 <h3>New Customer</h3>
             
                 <select className="mdc-select" value={this.state.customer_type_id} onChange={this.handleCustomerTypeChange}>
-                  <option value="2">Distributor</option>
-                  <option value="1">Individual</option>
+                  <option value="5">Distributor</option>
+                  <option value="4">Individual</option>
                 </select>
-                {this.state.customer_type_id === "1" &&
+                {this.state.customer_type_id === "4" &&
                         <div>
                         <div className="mdc-textfield mdc-textfield--fullwidth">
                           <input className="mdc-textfield__input"
@@ -99,7 +90,7 @@ class NewCustomer extends Component {
                         </div>
                         </div>
                 }
-                {this.state.customer_type_id === "2" &&
+                {this.state.customer_type_id === "5" &&
                         <div>
                         <div className="mdc-textfield mdc-textfield--fullwidth">
                           <input className="mdc-textfield__input"
@@ -228,14 +219,14 @@ class AccountsView extends Component {
                     <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
                         Individuals
                         {this.state.customers.filter(function(customer){
-                          return customer.customer_type_id === 1;
+                          return customer.customer_type_id === 4;
                         }).map(item => <Customer clickCallback={this.clickCustomerCallback} customerId={item.id} name={item.first_name + " " + item.last_name} />)}
                         
                     </div>
                     <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
                         Distributors
                         {this.state.customers.filter(function(customer){
-                          return customer.customer_type_id === 2;
+                          return customer.customer_type_id === 5;
                         }).map(item => <Customer clickCallback={this.clickCustomerCallback}  customerId={item.id} name={item.company.name} />)}
                     </div>
                 </div>
