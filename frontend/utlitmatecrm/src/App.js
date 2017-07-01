@@ -25,7 +25,7 @@ class ActiveView extends Component {
           } else if (viewName === 'Customer') {
             return <CustomerProfileView activeCustomerId={this.props.activeCustomerId}/>;
           } else  
-          return <HomeView />;
+          return <HomeView navigateToCustomerPage={this.props.navigateToCustomerPage}/>;
   }
 }   
   
