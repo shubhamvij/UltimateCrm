@@ -7,7 +7,7 @@ import '../../material-icon.css'
 class CustomerInfo extends Component {
     render() {
         return (
-            <li className="mdc-list-item">
+            <li className="mdc-list-item customListItem">
                 <span className="mdc-list-item__text">
                     {this.props.title}
                 <span className="mdc-list-item__text__secondary">{this.props.description}</span>
