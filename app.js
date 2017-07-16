@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 require('./routes')(app); // Load all routes
 
-var port = process.env.API_PORT || 3000;
+var port = process.env.PORT || process.env.API_PORT || 3000;
 
 app.listen(port, function () {
   console.log("Relations being managed on port 3000");
