@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom'
 
 import '../../material.css';
+import '../../App.css';
 import Notes from './Notes';
 import Emails from './Emails';
 import SalesAndPredictions from './SalesAndPredictions';
@@ -58,7 +59,7 @@ class CustomerProfileView extends Component {
             <div className="mdc-layout-grid__cell">
                 <Notes  customer_contact_records={this.state.customerData.customer_contact_records}></Notes>
             </div>
-            <div className="mdc-layout-grid__cell">
+            <div className="mdc-layout-grid__cell emails">
                 <Emails customer_informations={this.state.customerData.customer_informations}></Emails>
             </div>
             <div className="mdc-layout-grid__cell">
