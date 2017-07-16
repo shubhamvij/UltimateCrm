@@ -28,7 +28,7 @@ require('./routes')(app); // Load all routes
 var port = process.env.PORT || process.env.API_PORT || 3000;
 
 app.listen(port, function () {
-  console.log("Relations being managed on port 3000");
+  console.log("Relations being managed on port " + port);
   console.log("--------------");
 })
 
