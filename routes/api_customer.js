@@ -68,6 +68,19 @@ var include_array = [{
                 model: models.issue_type
             }
         ]
+    },
+    {
+        model: models.opportunity,
+        include: [{
+                model: models.company
+            },
+            {
+                model: models.generation_type
+            },
+            {
+                model: models.employee
+            }
+        ]
     }
 ];
 
