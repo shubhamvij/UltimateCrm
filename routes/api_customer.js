@@ -81,6 +81,9 @@ var include_array = [{
                 model: models.employee
             }
         ]
+    },
+    {
+        model: models.customer_est_lifetime_value
     }
 ];
 
