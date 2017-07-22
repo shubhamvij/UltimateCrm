@@ -238,7 +238,7 @@ module.exports = function(app) {
                 });
             } else {
                 var updates = {
-                    est_lifetime_value: customer.est_lifetime_value,
+                    est_lifetime_value: customer.customer_est_lifetime_values,
                     dnn_notes: customer.dnn_notes,
                     next_steps: customer.next_steps,
                     stage: ""
@@ -248,18 +248,29 @@ module.exports = function(app) {
                     const secondLastTotal = parseFloat(customer.orders[customer.orders.length - 2].total);
                     const timeDiff = parseInt(Math.abs(customer.orders[customer.orders.length - 1].date - customer.orders[customer.orders.length - 2].date)) + 31556952000 * 4;
                     const fiveYears = 157784630000;
-                    var estimatedTotal = customer.est_lifetime_value;
+                    var estimatedTotal = customer.customer_est_lifetime_values[customer.customer_est_lifetime_values.length -1].value;
                     if (lastTotal > secondLastTotal) {
                         estimatedTotal += fiveYears / timeDiff * (lastTotal - secondLastTotal) * 1.7
-                        updates = {
-                            est_lifetime_value: estimatedTotal,
-                            dnn_notes: "Purchase totals going up.",
-                            next_steps: "Meet customer demands by being readily available to help and reaching out on a weekly basis.",
-                            stage: "Maintenance"
-                        };
+                        models.customer_est_lifetime_value.create({
+                            customer_id: customer.id,
+                            date: new Date().toISOString(),
+                            value: estimatedTotal
+                        }).then(function(customer_est_lifetime_value) {
+                            updates.est_lifetime_value.push(customer_est_lifetime_value);
+                        });
+                        updates.dnn_notes = "Purchase totals going up.";
+                        updates.next_steps = "Meet customer demands by being readily available to help and reaching out on a weekly basis.";
+                        updates.stage = "Maintenance";
                     } else {
-                        updates.est_lifetime_value = Math.max(estimatedTotal - fiveYears / timeDiff * (secondLastTotal - lastTotal) * 1.3, 0);
-                        if (updates.est_lifetime_value > 0) {
+                        var newEstVal = Math.max(estimatedTotal - fiveYears / timeDiff * (secondLastTotal - lastTotal) * 1.3, 0);
+                        models.customer_est_lifetime_value.create({
+                            customer_id: customer.id,
+                            date: new Date().toISOString(),
+                            value: newEstVal
+                        }).then(function(customer_est_lifetime_value) {
+                            updates.est_lifetime_value.push(customer_est_lifetime_value);
+                        });
+                        if (newEstVal > 0) {
                             updates.dnn_notes = "Purchase totals going down.";
                             updates.next_steps = "Determine the cause of decreased totals. Reach out regularly to ensure customer satisfaction.";
                             updates.stage = "Recovery";
