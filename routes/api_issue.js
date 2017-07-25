@@ -74,9 +74,9 @@ module.exports = function(app) {
     app.post('/api/issue', function(req, res) {
         models.issue.create({
             customer_id: req.body.customer_id,
-            opened_by: req.body.opened_by_id,
-            closed_by: req.body.closed_by_id,
-            assigned_to: req.body.assigned_to_id,
+            opened_by_id: req.body.opened_by_id,
+            closed_by_id: req.body.closed_by_id,
+            assigned_to_id: req.body.assigned_to_id,
             created_at: req.body.created_at,
             updated_at: req.body.updated_at,
             title: req.body.title,
