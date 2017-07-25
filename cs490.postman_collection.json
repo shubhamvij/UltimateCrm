@@ -1,3315 +1,2531 @@
 {
-	"id": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-	"name": "cs490",
-	"description": "",
-	"order": [],
-	"folders": [
+	"variables": [],
+	"info": {
+		"name": "cs490",
+		"_postman_id": "10dc2335-98ea-d364-1663-b81d3e476f4d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "323f147b-1b10-a259-7f2d-05c4dc8ecd5e",
 			"name": "Companies",
 			"description": "",
-			"order": [
-				"43ce4ea3-c158-0445-c21d-d47ddcf62054",
-				"7a2516c0-8871-cc82-e3b8-b816c9e01344",
-				"18b3aa63-ed24-c615-17df-5ac689cbf5c7",
-				"50b28009-6ab7-c826-b584-f8bcd41fdb33",
-				"fb672775-1426-3c1e-d9bf-353061f99669"
-			],
-			"owner": "85160"
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/companies",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/company/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/company",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test_name",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test_desc",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "test_phone",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "test_website",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "test_country",
+									"type": "text"
+								},
+								{
+									"key": "account_manager_id",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/company/6",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/company/5",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"name\": \"new_name\",\n\t\t\"description\": \"new_description\",\n\t\t\"phone\": \"new_phone\",\n\t\t\"website\": \"new_website\",\n\t\t\"country\": \"new_country\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "8b3ebf18-d646-4c78-a368-d5135efa0bdb",
 			"name": "Company Addresses",
 			"description": "",
-			"order": [
-				"d532be14-4eb5-15c4-90bc-5ece44b52315",
-				"89714f94-fe9d-8023-882b-137a94be0d57",
-				"94f67389-a4ca-427b-3724-fca926bd0b6b",
-				"d92ccc65-b3b3-81ff-6169-4c9b442e228f",
-				"0eade0a8-df81-e884-33e8-232ee45b32f3"
-			],
-			"owner": "85160"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/company_address",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "address_line_one",
+									"value": "test_address_line_one",
+									"type": "text"
+								},
+								{
+									"key": "address_line_two",
+									"value": "test_address_line_two",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "test_city",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "test_province",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "test_country",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "test_postal_code",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "address_type",
+									"value": "test_address_type",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/company_address/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/company_addresses",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/employee/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/company_address/2",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"address_line_one\": \"new_address_line_one\",\n\t\t\"address_line_two\": \"new_address_line_two\",\n\t\t\"city\": \"new_city\",\n\t\t\"province\": \"new_province\",\n\t\t\"country\": \"new_country\",\n\t\t\"postal_code\": \"new_postal_code\",\n\t\t\"address_type\": \"new_address_type\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "3cd86337-f8da-c971-2f0e-ea72997593ef",
 			"name": "Company Predictions",
 			"description": "",
-			"order": [
-				"c77dd288-c444-0201-4247-f223ac51c014",
-				"b6e1f133-468d-66a7-41ae-082615c05acf",
-				"f19350a4-b38c-72a7-a2bb-e84d55cc08eb",
-				"2fb0ffa4-c285-8e01-2f19-ebb38acf4ee4",
-				"d5779978-0461-bb2c-32c4-7a3ee566a58b"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/company_prediction",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"type": "text",
+									"value": "test_name"
+								},
+								{
+									"key": "value",
+									"type": "text",
+									"value": "5"
+								},
+								{
+									"key": "date_predicted",
+									"type": "text",
+									"value": "2017-06-25 16:54:28"
+								},
+								{
+									"key": "company_id",
+									"type": "text",
+									"value": "5"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/company_prediction/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/company_predictions",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/company_prediction/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/company_prediction/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"name\": \"new_name\",\n\t\t\"value\": \"0\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"description": "",
-			"folder": null,
-			"id": "19ced866-f260-d6df-fb8b-452c9c421bee",
-			"lastUpdatedBy": "85160",
 			"name": "Contact Types",
-			"order": [
-				"8cff84ad-6a83-290a-d219-2539b24f0517",
-				"c7d8bd22-ecd5-aaa5-21e6-ac94bff719e2",
-				"449004b0-9f02-3681-81cd-1024217fb386",
-				"cb89373b-da71-3c09-f2e2-1034c3d5aab6",
-				"0d5b613c-27df-c810-ae3b-789cab3a2b72"
-			],
-			"owner": "85160",
-			"transactionId": "1fe7a896-5d80-4884-8dc2-6485298ec05b",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:3000/api/contact_type",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"description": "",
+									"key": "name",
+									"type": "text",
+									"value": "test_name"
+								},
+								{
+									"description": "",
+									"key": "description",
+									"type": "text",
+									"value": "test_description"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "http://localhost:3000/api/contact_types",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/contact_type/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:3000/api/contact_type/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Notice a foreign key constraint exists"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "http://localhost:3000/api/contact_type/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": {\n    \"name\": \"new_name\",\n    \"description\": \"new_description\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "3e6e9346-7ade-24ea-7cb1-b29886ac5e66",
 			"name": "Customer Contact Records",
 			"description": "",
-			"order": [
-				"42c7a665-dd11-e555-7fa6-33a8ea0418f4",
-				"f65cfe7d-3d22-6363-1fc9-2bafd17f1557",
-				"213960f9-e27c-54fa-8987-85814e9d6b6c",
-				"502b4c3d-6ebb-4c49-1951-9bf8c67c5db0",
-				"b83886b9-5abc-6209-e737-85da3e3c0c2d"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"key": "employee_id",
+									"type": "text",
+									"value": "10"
+								},
+								{
+									"key": "contact_type_id",
+									"type": "text",
+									"value": "3"
+								},
+								{
+									"key": "subject",
+									"type": "text",
+									"value": "test_subject"
+								},
+								{
+									"key": "start_date_time",
+									"value": "2017-06-25 16:54:28",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "end_date_time",
+									"value": "2017-06-25 20:54:28",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test_desc",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "test_notes",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_records",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"subject\": \"new_subject\",\n\t\t\"start_date_time\": \"2017-06-26 16:54:28\",\n\t\t\"end_date_time\": \"2017-06-26 20:54:28\",\n\t\t\"description\": \"new_desc\",\n\t\t\"notes\": \"new_notes\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
+			"name": "Customer Est. Lifetime Value",
 			"description": "",
-			"folder": null,
-			"id": "97fb7443-7f2d-6937-87c2-2f8290dbd1eb",
-			"lastUpdatedBy": "85160",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/customer_est_lifetime_value",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"key": "date",
+									"value": "2017-07-05 00:00:00",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "450",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/customer_est_lifetime_value/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/customer_est_lifetime_values",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/customer_est_lifetime_value/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/customer_est_lifetime_value/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"date\": \"2017-06-28 16:54:28\",\n\t\t\"value\": \"500\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Customer Information Types",
-			"order": [
-				"e1f07b98-5105-2cfb-d6e1-8ad78b0f4b06",
-				"ac22fc5b-31c2-801d-d68c-a74c1d57a90b",
-				"48e254f3-aa1e-d5fa-ef7f-69cd867d1958",
-				"8074f3e5-b58c-e8b0-4cdb-e04ec3b43352",
-				"e85db056-7242-3cd9-66eb-952fe8428ff0"
-			],
-			"owner": "85160",
-			"transactionId": "1fe7a896-5d80-4884-8dc2-6485298ec05b",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information_type",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"description": "",
+									"key": "name",
+									"type": "text",
+									"value": "test_name"
+								},
+								{
+									"description": "",
+									"key": "description",
+									"type": "text",
+									"value": "test_description"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information_types",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information_type/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information_type/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Notice a foreign key constraint exists"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information_type/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": {\n    \"name\": \"new_name\",\n    \"description\": \"new_description\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"description": "",
-			"folder": null,
-			"id": "e23bcebf-3e1c-6ce2-3f26-073cd4eda1d1",
-			"lastUpdatedBy": "85160",
 			"name": "Customer Informations",
-			"order": [
-				"804a383f-73f1-0255-2295-27d7a9b34bea",
-				"df3148f3-2820-7454-efdc-b62bfc689a9a",
-				"5633c983-5a2f-bdbc-13ab-4b2d2c8b83d6",
-				"54dfa6ec-ec09-8afb-b990-942e0a09021d",
-				"595c66e1-d574-9bc9-9160-4261ae56c8dc"
-			],
-			"owner": "85160",
-			"transactionId": "1fe7a896-5d80-4884-8dc2-6485298ec05b",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"description": "",
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"description": "",
+									"key": "customer_information_type_id",
+									"type": "text",
+									"value": "1"
+								},
+								{
+									"key": "value",
+									"value": "fake_info_3",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "http://localhost:3000/api/customer_informations",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Notice a foreign key constraint exists"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_information/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": {\n    \"value\": \"super_fake\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"description": "",
-			"folder": null,
-			"id": "c0b5feea-5400-afcb-ee9a-5ceadd5156bb",
-			"lastUpdatedBy": "85160",
 			"name": "Customer Reviews",
-			"order": [
-				"9319be21-80c0-f6be-457a-c7b0f8136324",
-				"a4d83711-8a35-bfe4-eb28-a929c31335fd",
-				"a5528300-07c8-6a0f-8412-b9f2bed27260",
-				"7e4ea7fa-1b44-0623-e17b-56d720aa4603",
-				"716fcadf-f279-b1b0-3685-1dd1e12d8d6b"
-			],
-			"owner": "85160",
-			"transactionId": "1fe7a896-5d80-4884-8dc2-6485298ec05b",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
-		},
-		{
 			"description": "",
-			"folder": null,
-			"id": "1e5146fc-10cf-8911-deac-49001884c28a",
-			"lastUpdatedBy": "85160",
-			"name": "Customer Types",
-			"order": [
-				"9135f274-67c4-ca86-5e2a-e2febeaea2d4",
-				"896dfb44-53ac-4047-abb0-5fd9c12cdd1d",
-				"1318735a-23ca-eb5c-2196-84e3d94f97a7",
-				"7b07cd36-6cf2-dac1-3300-50ed16435c15",
-				"1841b651-1e0b-a167-c177-62ead51f2a73"
-			],
-			"owner": "85160",
-			"transactionId": "1fe7a896-5d80-4884-8dc2-6485298ec05b",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:3000/api/customer_review",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"description": "",
+									"key": "source",
+									"type": "text",
+									"value": "test_source"
+								},
+								{
+									"description": "",
+									"key": "subject",
+									"type": "text",
+									"value": "test_subject"
+								},
+								{
+									"key": "body",
+									"value": "test_body",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "customer_id",
+									"value": "8",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "http://localhost:3000/api/customer_reviews",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_review/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:3000/api/customer_review/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Notice a foreign key constraint exists"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_review/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": {\n    \"source\": \"fake_source\",\n    \"subject\": \"fake_subject\",\n    \"body\": \"fake_body\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "61f35bb5-d871-179a-f74b-0e75384c9b33",
+			"name": "Customer Types",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:3000/api/customer_type",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"description": "",
+									"key": "name",
+									"type": "text",
+									"value": "test_name"
+								},
+								{
+									"description": "",
+									"key": "description",
+									"type": "text",
+									"value": "test_description"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "http://localhost:3000/api/customer_types",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_type/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:3000/api/customer_type/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Notice a foreign key constraint exists"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "http://localhost:3000/api/customer_type/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": {\n    \"name\": \"new_name\",\n    \"description\": \"new_description\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Customers",
 			"description": "",
-			"order": [
-				"506dfa8c-b2da-fac8-54bd-578cbbb1f8ef",
-				"7c8ae84c-fe1d-24db-fe75-73400b7d8bce",
-				"1224382e-3c50-a5fb-8550-607ade0918eb",
-				"cef25730-ce5b-e38f-d8cc-fa7f2b891d62",
-				"6c4f2743-28c1-6a9f-d57c-57eed71ef8af",
-				"97e41eee-47d9-c01b-f663-58b569f55358"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/customer",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "first_name",
+									"value": "test_first_name",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "last_name",
+									"value": "test_last_name",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "office_phone",
+									"value": "test_office_phone",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "other_phone",
+									"value": "test_other_phone",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "other_phone_type",
+									"value": "test_other_phone_type",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "title",
+									"value": "test_title",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "department",
+									"value": "test_department",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "company_id",
+									"value": "5",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "account_manager_id",
+									"value": "10",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "fax",
+									"value": "test_fax",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "email",
+									"value": "test_vemail",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "office_address",
+									"value": "test_office_address",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "description",
+									"value": "test_desc",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "generated_through_id",
+									"value": "1",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "est_lifetime_value",
+									"value": "1",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "amt_purchased",
+									"value": "1",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "notes",
+									"value": "test_notes",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "customer_type_id",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/customer/10",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/customers",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/customer/9",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "localhost:3000/api/customer/10",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t    \"first_name\": \"new_first_name\",\n\t    \"last_name\": \"new_last_name\",\n\t    \"office_phone\": \"new_office_phone\",\n\t    \"other_phone\": \"new_other_phone\",\n\t    \"other_phone_type\": \"new_other_phone_type\",\n\t    \"title\": \"new_title\",\n\t    \"department\": \"new_department\",\n\t    \"fax\": \"new_fax\",\n\t    \"email\": \"new_vemail\",\n\t    \"office_address\": \"new_office_address\",\n\t    \"description\": \"new_desc\",\n\t    \"est_lifetime_value\": \"500\",\n\t    \"amt_purchased\": \"23\",\n\t    \"notes\": \"new_notes\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id copy",
+					"request": {
+						"url": "localhost:3000/api/customer/10",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "10c23fab-ee97-14bc-ca5e-6a65ac99df63",
 			"name": "Departments",
 			"description": "",
-			"order": [
-				"d80f6943-fa86-1ae6-56de-60ba02918d79",
-				"a7b39b12-0f37-b926-3129-05379779a68c",
-				"9ced2ae0-1640-8ed7-7f5f-5a59d8a10f39",
-				"b1f8e11c-4325-bb29-0482-c22176669bed",
-				"fdbcaf41-c23b-b68e-4db3-1c933849ceec"
-			],
-			"owner": "85160"
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/departments",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/department/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/department",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "dept_name",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "dept_description",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/department/4",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "localhost:3000/api/department/5",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"name\": \"new_Name\",\n\t\t\"description\": \"new_description\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "67df2979-f978-3f78-8511-a5f57724291a",
 			"name": "Employees",
 			"description": "",
-			"order": [
-				"f0ff1c78-8839-f01c-1824-aaa901386d6b",
-				"63ff6426-787c-74f4-08ff-466090b9c8e8",
-				"fe4658e0-ab17-664a-a032-42703cc2914f",
-				"489db60a-96f5-62be-ef5a-782e5b931cd6",
-				"44d98c95-a544-4165-f7bb-3f1d4dbf94d8"
-			],
-			"owner": "85160"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/employee",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test_name",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test_desc",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "test_phone",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "test_website",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "test_country",
+									"type": "text"
+								},
+								{
+									"key": "account_manager_id",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "fax",
+									"value": "test_fax",
+									"type": "text"
+								},
+								{
+									"key": "office_address",
+									"value": "test_office_address",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test_email",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/employee/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/employees",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/employee/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "localhost:3000/api/employee/10",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"username\": \"test_username_3\",\n\t\t\"first_name\": \"test_first_name\",\n\t\t\"last_name\": \"test_last_name\",\n\t\t\"office_phone\": \"test_office_phone\",\n\t\t\"cell_phone\": \"test_cell_phone\",\n\t\t\"title\": \"test_title\",\n\t\t\"department_id\": \"1\",\n\t\t\"fax\": \"test_fax\",\n\t\t\"office_address\": \"test_office_address\",\n\t\t\"email\": \"test_email\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "8b2677a1-b861-1d43-b10b-f8c8c58d0e55",
 			"name": "Generation Types",
 			"description": "",
-			"order": [
-				"c84bd90b-7893-62a2-bee3-900bc27aa30b",
-				"6a0ac8e2-4a9c-391e-4e62-3f8766cf681f",
-				"0192df13-5a2f-7edc-679b-1a5230458904",
-				"3d08d7f1-ccc5-a2a9-3084-201832bca37b",
-				"87c647c6-d6bd-56c9-6a13-8df0b4b251bf"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/generation_type",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test_name_1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test_description",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/generation_type/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/generation_types",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/generation_type/4",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "localhost:3000/api/generation_type/4",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"name\": \"new_name\",\n\t\t\"description\": \"new_description\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "a7405f85-2ac1-44f5-4281-85c57e56159c",
+			"name": "Issue Types",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "http://localhost:3000/api/issue_type",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"description": "",
+									"key": "name",
+									"type": "text",
+									"value": "Bad Bike3"
+								},
+								{
+									"description": "",
+									"key": "description",
+									"type": "text",
+									"value": "we sold em a shitty fuckin bike"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "http://localhost:3000/api/issue_types",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/issue_type/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"url": "http://localhost:3000/api/issue_type/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Notice a foreign key constraint exists"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "http://localhost:3000/api/issue_type/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updates\": {\n    \"name\": \"bad_bike_new\",\n    \"description\": \"baddddd\"\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Issues",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/issue",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"value": "8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "opened_by",
+									"value": "10",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "assigned_to",
+									"value": "10",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "created_at",
+									"value": "2017-06-25 16:54:28",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "updated_at",
+									"value": "2017-06-25 16:54:28",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "title",
+									"value": "test_title",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "priority",
+									"value": "1",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "issue_type_id",
+									"value": "3",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "issue_notes",
+									"value": "test_issue_notes",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/issue/4",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/issues",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/issue/4",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/issue/5",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"closed_by\":\"10\",\n\t\t\"updated_at\":\"2017-06-29 16:54:28\",\n\t\t\"issue_notes\":\"test_issue_notes\",\n\t\t\"closed_at\":\"2017-06-29 16:54:28\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Opportunities",
 			"description": "",
-			"order": [
-				"6987b63e-8c7e-f706-0b99-9f1e2066ebe3",
-				"9f26ca16-2961-dc58-e1c0-cb76af4c8196",
-				"899c8d27-525c-7c10-2be3-20ce494950d9",
-				"76183ace-b97a-75bf-45fe-16f4df096cbc",
-				"0657d127-eac5-6501-67c4-eb53e449ee78"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/opportunity",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test_name",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "description",
+									"value": "test_description",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "company_id",
+									"value": "5",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "currency",
+									"value": "test_currency",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "expected_close_date",
+									"value": "test_expected_close_date",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "approximate_worth",
+									"value": "100.24",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "generated_through_id",
+									"value": "1",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "probability",
+									"value": "34.24",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "next_steps",
+									"value": "test_next_steps",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "notes",
+									"value": "test_notes",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "account_manager_id",
+									"value": "10",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/opportunity/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/opportunities",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/opportunity/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "localhost:3000/api/opportunity/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t    \"name\":\"new_name\",\n\t    \"description\":\"new_description\",\n\t    \"company_id\":\"5\",\n\t    \"currency\":\"new_currency\",\n\t    \"expected_close_date\":\"new_expected_close_date\",\n\t    \"approximate_worth\":\"345.24\",\n\t    \"generated_through_id\":\"1\",\n\t    \"probability\":\"34.24\",\n\t    \"next_steps\":\"new_next_steps\",\n\t    \"notes\":\"new_notes\",\n\t    \"account_manager_id\":\"10\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "90602acb-23bb-31af-baca-0fc9a09f1955",
 			"name": "Opportunities Employees",
 			"description": "",
-			"order": [
-				"579a4195-3fa8-3faf-0ea6-d03dda97b0bd",
-				"6781ba0a-306d-df50-4ff6-5e8bf7ec82ac",
-				"334d474f-b22d-e5ae-3aa3-775c7e1f7171",
-				"439e6a6e-f52f-754d-7d9a-406e3867ad3e",
-				"0b29f4c0-c6bb-656f-f9ca-b52fe990f597"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/opportunities_employee",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "opportunity_id",
+									"value": "3",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "customer_id",
+									"value": "8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "account_manager_id",
+									"value": "10",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/opportunities_employee/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/opportunities_employees",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/opportunities_employee/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"url": "localhost:3000/api/opportunities_employee/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t    \"opportunity_id\":\"3\",\n\t    \"customer_id\":\"10\",\n\t    \"account_manager_id\":\"10\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "bea728b8-cdee-4964-c854-84c8ca93bbfc",
 			"name": "Opportunity Contact Records",
 			"description": "",
-			"order": [
-				"5ae65c8c-85e3-ca6a-f59e-2a75aaecc705",
-				"30c63c4e-2192-685b-bb31-e08fbb9283b7",
-				"03b66ce2-9d4e-7367-48f4-48a3e4a44c0d",
-				"9521e96a-371c-c570-6772-cacb7f9a85e2",
-				"c4ca5344-bb51-00a6-9847-cc525af12de1"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record",
+						"method": "POST",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"key": "employee_id",
+									"type": "text",
+									"value": "10"
+								},
+								{
+									"key": "contact_type_id",
+									"type": "text",
+									"value": "3"
+								},
+								{
+									"key": "subject",
+									"type": "text",
+									"value": "test_subject"
+								},
+								{
+									"description": "",
+									"key": "start_date_time",
+									"type": "text",
+									"value": "2017-06-25 16:54:28"
+								},
+								{
+									"description": "",
+									"key": "end_date_time",
+									"type": "text",
+									"value": "2017-06-25 20:54:28"
+								},
+								{
+									"description": "",
+									"key": "description",
+									"type": "text",
+									"value": "test_desc"
+								},
+								{
+									"description": "",
+									"key": "notes",
+									"type": "text",
+									"value": "test_notes"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_records",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/customer_contact_record/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"description": "",
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"subject\": \"new_subject\",\n\t\t\"start_date_time\": \"2017-06-26 16:54:28\",\n\t\t\"end_date_time\": \"2017-06-26 20:54:28\",\n\t\t\"description\": \"new_desc\",\n\t\t\"notes\": \"new_notes\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "1abce963-f7fd-9032-a7b2-a78495b906ed",
 			"name": "Order Line Items",
 			"description": "",
-			"order": [
-				"57dbcf67-a10f-776c-0d24-e1fea81b1f31",
-				"fbfa4335-440b-ddcd-b2b6-6461c235b7d1",
-				"bc5e5e9f-52d7-7081-ea93-db1848a78654",
-				"81796612-92e2-05cd-4166-cd5a727aa6eb",
-				"66478195-d353-3e28-06de-2ce6f0d5b37b"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/order_line_item",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_id",
+									"type": "text",
+									"value": "1"
+								},
+								{
+									"key": "quantity",
+									"type": "text",
+									"value": "5"
+								},
+								{
+									"key": "price",
+									"type": "text",
+									"value": "100"
+								},
+								{
+									"key": "order_id",
+									"type": "text",
+									"value": "3"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/order_line_item/2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/order_line_items",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/order_line_item/3",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/order_line_item/2",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"product_id\": \"1\",\n\t\t\"quantity\": \"34\",\n\t\t\"price\": \"50\",\n\t\t\"order_id\": \"3\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "9f2647f4-94ce-4366-c15b-558ab1059540",
 			"name": "Orders",
 			"description": "",
-			"order": [
-				"f617c347-9e44-2d0d-8ae4-462591d21c1d",
-				"06f7fa6d-9bcf-faee-ef25-ef1d6c4ad7cf",
-				"6ade36cc-bb37-c4b8-5353-ebc7a20ac24a",
-				"e8d9df24-3941-b6cc-86fe-c56ce5035366",
-				"e50ffc31-8c40-7c99-317f-612f7712bf13"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/order",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"key": "account_manager_id",
+									"type": "text",
+									"value": "10"
+								},
+								{
+									"key": "total",
+									"type": "text",
+									"value": "500"
+								},
+								{
+									"key": "date",
+									"type": "text",
+									"value": "2017-06-25 16:54:28"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/order/3",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/orders",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/order/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/order/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"customer_id\":\"8\",\n\t\t\"account_manager_id\":\"10\",\n\t\t\"total\":\"900\",\n\t\t\"date\":\"2017-06-25 16:54:28\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create copy",
+					"request": {
+						"url": "localhost:3000/api/order",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"key": "account_manager_id",
+									"type": "text",
+									"value": "10"
+								},
+								{
+									"key": "total",
+									"type": "text",
+									"value": "500"
+								},
+								{
+									"key": "date",
+									"type": "text",
+									"value": "2017-06-25 16:54:28"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create copy copy",
+					"request": {
+						"url": "localhost:3000/api/order",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"type": "text",
+									"value": "8"
+								},
+								{
+									"key": "account_manager_id",
+									"type": "text",
+									"value": "10"
+								},
+								{
+									"key": "total",
+									"type": "text",
+									"value": "500"
+								},
+								{
+									"key": "date",
+									"type": "text",
+									"value": "2017-06-25 16:54:28"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "9987c469-8cfb-5526-0c3a-b1184f356640",
 			"name": "Products",
 			"description": "",
-			"order": [
-				"b5f36eea-6ab7-6c2d-349f-8f1f2834da34",
-				"584af049-cf72-ceae-71b9-89dfa4ac043d",
-				"ca52fb0b-54d7-eea5-8d5a-367bd855f7f5",
-				"d43133cc-74c6-b7ab-614e-c4885691cbde",
-				"dcce7ffa-d14b-6ab5-1681-d28865878e55"
-			],
-			"owner": "85160",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d"
-		}
-	],
-	"timestamp": 1498348379108,
-	"owner": "85160",
-	"public": false,
-	"requests": [
-		{
-			"id": "0192df13-5a2f-7edc-679b-1a5230458904",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/generation_types",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429395974,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "03b66ce2-9d4e-7367-48f4-48a3e4a44c0d",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer_contact_records",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429627095,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "213960f9-e27c-54fa-8987-85814e9d6b6c",
-			"folder": "bea728b8-cdee-4964-c854-84c8ca93bbfc"
-		},
-		{
-			"id": "0657d127-eac5-6501-67c4-eb53e449ee78",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
+			"item": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"name": "Create",
+					"request": {
+						"url": "localhost:3000/api/product",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "sku",
+									"type": "text",
+									"value": "251"
+								},
+								{
+									"key": "trim",
+									"type": "text",
+									"value": "test_trim"
+								},
+								{
+									"key": "color",
+									"type": "text",
+									"value": "test_color"
+								},
+								{
+									"key": "inventory",
+									"type": "text",
+									"value": "5"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"url": "localhost:3000/api/product/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"url": "localhost:3000/api/products",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"url": "localhost:3000/api/product/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"url": "localhost:3000/api/product/4",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"updates\": {\n\t\t\"sku\": \"new_sku\",\n\t\t\"trim\": \"new_trim\",\n\t\t\"color\": \"new_color\",\n\t\t\"inventory\": \"534\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
 				}
-			],
-			"url": "localhost:3000/api/opportunity/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498434673487,
-			"name": "Update",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t    \"name\":\"new_name\",\n\t    \"description\":\"new_description\",\n\t    \"company_id\":\"5\",\n\t    \"currency\":\"new_currency\",\n\t    \"expected_close_date\":\"new_expected_close_date\",\n\t    \"approximate_worth\":\"345.24\",\n\t    \"generated_through_id\":\"1\",\n\t    \"probability\":\"34.24\",\n\t    \"next_steps\":\"new_next_steps\",\n\t    \"notes\":\"new_notes\",\n\t    \"account_manager_id\":\"10\"\n\t}\n}"
-		},
-		{
-			"id": "06f7fa6d-9bcf-faee-ef25-ef1d6c4ad7cf",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/order/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437224763,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "0b29f4c0-c6bb-656f-f9ca-b52fe990f597",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/opportunities_employee/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498435140304,
-			"name": "Update",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t    \"opportunity_id\":\"3\",\n\t    \"customer_id\":\"10\",\n\t    \"account_manager_id\":\"10\"\n\t}\n}"
-		},
-		{
-			"id": "0d5b613c-27df-c810-ae3b-789cab3a2b72",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/contact_type/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431681127,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n  \"updates\": {\n    \"name\": \"new_name\",\n    \"description\": \"new_description\"\n  }\n}"
-		},
-		{
-			"id": "0eade0a8-df81-e884-33e8-232ee45b32f3",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/company_address/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498409330306,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"address_line_one\": \"new_address_line_one\",\n\t\t\"address_line_two\": \"new_address_line_two\",\n\t\t\"city\": \"new_city\",\n\t\t\"province\": \"new_province\",\n\t\t\"country\": \"new_country\",\n\t\t\"postal_code\": \"new_postal_code\",\n\t\t\"address_type\": \"new_address_type\"\n\t}\n}"
-		},
-		{
-			"id": "1224382e-3c50-a5fb-8550-607ade0918eb",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customers",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498426913747,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "1318735a-23ca-eb5c-2196-84e3d94f97a7",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_type/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433351073,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "1841b651-1e0b-a167-c177-62ead51f2a73",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_type/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433364121,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n  \"updates\": {\n    \"name\": \"new_name\",\n    \"description\": \"new_description\"\n  }\n}"
-		},
-		{
-			"id": "18b3aa63-ed24-c615-17df-5ac689cbf5c7",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"url": "localhost:3000/api/company",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [
-				{
-					"key": "name",
-					"value": "test_name",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "test_desc",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "phone",
-					"value": "test_phone",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "website",
-					"value": "test_website",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "country",
-					"value": "test_country",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "account_manager_id",
-					"value": "10",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498407849427,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "323f147b-1b10-a259-7f2d-05c4dc8ecd5e"
-		},
-		{
-			"id": "213960f9-e27c-54fa-8987-85814e9d6b6c",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer_contact_records",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429627095,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "2fb0ffa4-c285-8e01-2f19-ebb38acf4ee4",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/company_prediction/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498409352444,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "30c63c4e-2192-685b-bb31-e08fbb9283b7",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer_contact_record/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429624508,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "f65cfe7d-3d22-6363-1fc9-2bafd17f1557",
-			"folder": "bea728b8-cdee-4964-c854-84c8ca93bbfc"
-		},
-		{
-			"id": "334d474f-b22d-e5ae-3aa3-775c7e1f7171",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/opportunities_employees",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498434758396,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "3d08d7f1-ccc5-a2a9-3084-201832bca37b",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/generation_type/4",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429361738,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "42c7a665-dd11-e555-7fa6-33a8ea0418f4",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/customer_contact_record",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"enabled": true,
-					"key": "customer_id",
-					"type": "text",
-					"value": "8"
-				},
-				{
-					"enabled": true,
-					"key": "employee_id",
-					"type": "text",
-					"value": "10"
-				},
-				{
-					"enabled": true,
-					"key": "contact_type_id",
-					"type": "text",
-					"value": "3"
-				},
-				{
-					"enabled": true,
-					"key": "subject",
-					"type": "text",
-					"value": "test_subject"
-				},
-				{
-					"key": "start_date_time",
-					"value": "2017-06-25 16:54:28",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "end_date_time",
-					"value": "2017-06-25 20:54:28",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "test_desc",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "notes",
-					"value": "test_notes",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498430874600,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "439e6a6e-f52f-754d-7d9a-406e3867ad3e",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/opportunities_employee/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498434777924,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "43ce4ea3-c158-0445-c21d-d47ddcf62054",
-			"headers": "",
-			"url": "localhost:3000/api/companies",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498407029220,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "323f147b-1b10-a259-7f2d-05c4dc8ecd5e"
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"currentHelper": "normal",
-			"data": null,
-			"dataMode": "params",
-			"description": "",
-			"descriptionFormat": "html",
-			"folder": "19ced866-f260-d6df-fb8b-452c9c421bee",
-			"headerData": [],
-			"headers": "",
-			"helperAttributes": "[]",
-			"id": "449004b0-9f02-3681-81cd-1024217fb386",
-			"method": "GET",
-			"name": "Get by id",
-			"pathVariableData": [],
-			"pathVariables": [],
-			"preRequestScript": null,
-			"queryParams": [],
-			"responses": [],
-			"tests": null,
-			"url": "http://localhost:3000/api/contact_type/3"
-		},
-		{
-			"id": "44d98c95-a544-4165-f7bb-3f1d4dbf94d8",
-			"headers": "Content-Type: application/json\n",
-			"url": "localhost:3000/api/employee/10",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498354095477,
-			"name": "Update",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "67df2979-f978-3f78-8511-a5f57724291a",
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"username\": \"test_username_3\",\n\t\t\"first_name\": \"test_first_name\",\n\t\t\"last_name\": \"test_last_name\",\n\t\t\"office_phone\": \"test_office_phone\",\n\t\t\"cell_phone\": \"test_cell_phone\",\n\t\t\"title\": \"test_title\",\n\t\t\"department_id\": \"1\",\n\t\t\"fax\": \"test_fax\",\n\t\t\"office_address\": \"test_office_address\",\n\t\t\"email\": \"test_email\"\n\t}\n}"
-		},
-		{
-			"id": "489db60a-96f5-62be-ef5a-782e5b931cd6",
-			"headers": "",
-			"url": "localhost:3000/api/employee/1",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "DELETE",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"data": null,
-			"dataMode": "params",
-			"name": "Delete by id",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1498348472809,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "67df2979-f978-3f78-8511-a5f57724291a"
-		},
-		{
-			"id": "48e254f3-aa1e-d5fa-ef7f-69cd867d1958",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_information_type/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431565274,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "502b4c3d-6ebb-4c49-1951-9bf8c67c5db0",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer_contact_record/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498430901537,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "506dfa8c-b2da-fac8-54bd-578cbbb1f8ef",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/customer",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "first_name",
-					"value": "test_first_name",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "last_name",
-					"value": "test_last_name",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "office_phone",
-					"value": "test_office_phone",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "other_phone",
-					"value": "test_other_phone",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "other_phone_type",
-					"value": "test_other_phone_type",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "title",
-					"value": "test_title",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "department",
-					"value": "test_department",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "company_id",
-					"value": "5",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "account_manager_id",
-					"value": "10",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "fax",
-					"value": "test_fax",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "email",
-					"value": "test_vemail",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "office_address",
-					"value": "test_office_address",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "description",
-					"value": "test_desc",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "generated_through_id",
-					"value": "1",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "est_lifetime_value",
-					"value": "1",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "amt_purchased",
-					"value": "1",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "notes",
-					"value": "test_notes",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "customer_type_id",
-					"value": "1",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433248069,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "50b28009-6ab7-c826-b584-f8bcd41fdb33",
-			"headers": "",
-			"url": "localhost:3000/api/company/6",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498408052654,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "323f147b-1b10-a259-7f2d-05c4dc8ecd5e"
-		},
-		{
-			"id": "54dfa6ec-ec09-8afb-b990-942e0a09021d",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_information/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431774178,
-			"name": "Delete",
-			"description": "Notice a foreign key constraint exists",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "5633c983-5a2f-bdbc-13ab-4b2d2c8b83d6",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_information/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431771667,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "579a4195-3fa8-3faf-0ea6-d03dda97b0bd",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/opportunities_employee",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "opportunity_id",
-					"value": "3",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "customer_id",
-					"value": "8",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "account_manager_id",
-					"value": "10",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498435084567,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "57dbcf67-a10f-776c-0d24-e1fea81b1f31",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/order_line_item",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"enabled": true,
-					"key": "product_id",
-					"type": "text",
-					"value": "1"
-				},
-				{
-					"enabled": true,
-					"key": "quantity",
-					"type": "text",
-					"value": "5"
-				},
-				{
-					"enabled": true,
-					"key": "price",
-					"type": "text",
-					"value": "100"
-				},
-				{
-					"enabled": true,
-					"key": "order_id",
-					"type": "text",
-					"value": "3"
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437288533,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "584af049-cf72-ceae-71b9-89dfa4ac043d",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/product/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498436754548,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "595c66e1-d574-9bc9-9160-4261ae56c8dc",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_information/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431856674,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n  \"updates\": {\n    \"value\": \"super_fake\"\n  }\n}"
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"collectionRequestId": "42c7a665-dd11-e555-7fa6-33a8ea0418f4",
-			"currentHelper": "normal",
-			"data": [
-				{
-					"enabled": true,
-					"key": "customer_id",
-					"type": "text",
-					"value": "8"
-				},
-				{
-					"enabled": true,
-					"key": "employee_id",
-					"type": "text",
-					"value": "10"
-				},
-				{
-					"enabled": true,
-					"key": "contact_type_id",
-					"type": "text",
-					"value": "3"
-				},
-				{
-					"enabled": true,
-					"key": "subject",
-					"type": "text",
-					"value": "test_subject"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "start_date_time",
-					"type": "text",
-					"value": "2017-06-25 16:54:28"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "end_date_time",
-					"type": "text",
-					"value": "2017-06-25 20:54:28"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "description",
-					"type": "text",
-					"value": "test_desc"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "notes",
-					"type": "text",
-					"value": "test_notes"
-				}
-			],
-			"dataMode": "urlencoded",
-			"description": "",
-			"folder": "bea728b8-cdee-4964-c854-84c8ca93bbfc",
-			"headerData": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded"
-				}
-			],
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"helperAttributes": {},
-			"id": "5ae65c8c-85e3-ca6a-f59e-2a75aaecc705",
-			"isFromCollection": true,
-			"method": "POST",
-			"name": "Create",
-			"pathVariableData": [],
-			"pathVariables": {},
-			"preRequestScript": null,
-			"queryParams": [],
-			"responses": [],
-			"tests": null,
-			"time": 1498430874600,
-			"url": "localhost:3000/api/customer_contact_record",
-			"version": 2
-		},
-		{
-			"id": "63ff6426-787c-74f4-08ff-466090b9c8e8",
-			"headers": "",
-			"url": "localhost:3000/api/employee/1",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"data": null,
-			"dataMode": "params",
-			"name": "Get by id",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1498348463048,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "67df2979-f978-3f78-8511-a5f57724291a"
-		},
-		{
-			"id": "66478195-d353-3e28-06de-2ce6f0d5b37b",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/order_line_item/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437366137,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"product_id\": \"1\",\n\t\t\"quantity\": \"34\",\n\t\t\"price\": \"50\",\n\t\t\"order_id\": \"3\"\n\t}\n}"
-		},
-		{
-			"id": "6781ba0a-306d-df50-4ff6-5e8bf7ec82ac",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/opportunities_employee/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498435179938,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "6987b63e-8c7e-f706-0b99-9f1e2066ebe3",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/opportunity",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "name",
-					"value": "test_name",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "description",
-					"value": "test_description",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "company_id",
-					"value": "5",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "currency",
-					"value": "test_currency",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "expected_close_date",
-					"value": "test_expected_close_date",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "approximate_worth",
-					"value": "100.24",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "generated_through_id",
-					"value": "1",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "probability",
-					"value": "34.24",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "next_steps",
-					"value": "test_next_steps",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "notes",
-					"value": "test_notes",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				},
-				{
-					"key": "account_manager_id",
-					"value": "10",
-					"type": "text",
-					"enabled": true,
-					"description": ""
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498434541539,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "6a0ac8e2-4a9c-391e-4e62-3f8766cf681f",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/generation_type/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429096599,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "6ade36cc-bb37-c4b8-5353-ebc7a20ac24a",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/orders",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437148561,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "6c4f2743-28c1-6a9f-d57c-57eed71ef8af",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/customer/10",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498430658263,
-			"name": "Update",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t    \"first_name\": \"new_first_name\",\n\t    \"last_name\": \"new_last_name\",\n\t    \"office_phone\": \"new_office_phone\",\n\t    \"other_phone\": \"new_other_phone\",\n\t    \"other_phone_type\": \"new_other_phone_type\",\n\t    \"title\": \"new_title\",\n\t    \"department\": \"new_department\",\n\t    \"fax\": \"new_fax\",\n\t    \"email\": \"new_vemail\",\n\t    \"office_address\": \"new_office_address\",\n\t    \"description\": \"new_desc\",\n\t    \"est_lifetime_value\": \"500\",\n\t    \"amt_purchased\": \"23\",\n\t    \"notes\": \"new_notes\"\n\t}\n}"
-		},
-		{
-			"id": "716fcadf-f279-b1b0-3685-1dd1e12d8d6b",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_review/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498432353675,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n  \"updates\": {\n    \"source\": \"fake_source\",\n    \"subject\": \"fake_subject\",\n    \"body\": \"fake_body\"\n  }\n}"
-		},
-		{
-			"id": "76183ace-b97a-75bf-45fe-16f4df096cbc",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/opportunity/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498434559339,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "7a2516c0-8871-cc82-e3b8-b816c9e01344",
-			"headers": "",
-			"url": "localhost:3000/api/company/1",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498407041899,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "323f147b-1b10-a259-7f2d-05c4dc8ecd5e"
-		},
-		{
-			"id": "7b07cd36-6cf2-dac1-3300-50ed16435c15",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_type/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433361953,
-			"name": "Delete",
-			"description": "Notice a foreign key constraint exists",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "7c8ae84c-fe1d-24db-fe75-73400b7d8bce",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer/10",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498430540969,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "7e4ea7fa-1b44-0623-e17b-56d720aa4603",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_review/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498432244916,
-			"name": "Delete",
-			"description": "Notice a foreign key constraint exists",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "804a383f-73f1-0255-2295-27d7a9b34bea",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_information",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "customer_id",
-					"type": "text",
-					"value": "10"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "customer_information_type_id",
-					"type": "text",
-					"value": "1"
-				},
-				{
-					"key": "value",
-					"value": "fake_info_3",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431832601,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "8074f3e5-b58c-e8b0-4cdb-e04ec3b43352",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_information_type/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431571226,
-			"name": "Delete",
-			"description": "Notice a foreign key constraint exists",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "81796612-92e2-05cd-4166-cd5a727aa6eb",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/order_line_item/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437321119,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "87c647c6-d6bd-56c9-6a13-8df0b4b251bf",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/generation_type/4",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429354276,
-			"name": "Update",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"name\": \"new_name\",\n\t\t\"description\": \"new_description\"\n\t}\n}"
-		},
-		{
-			"id": "896dfb44-53ac-4047-abb0-5fd9c12cdd1d",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_types",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433415058,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "89714f94-fe9d-8023-882b-137a94be0d57",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/company_address/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498408800299,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "899c8d27-525c-7c10-2be3-20ce494950d9",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/opportunities",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433958343,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"currentHelper": "normal",
-			"data": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "name",
-					"type": "text",
-					"value": "test_name"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "description",
-					"type": "text",
-					"value": "test_description"
-				}
-			],
-			"dataMode": "urlencoded",
-			"description": "",
-			"folder": "19ced866-f260-d6df-fb8b-452c9c421bee",
-			"headerData": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded"
-				}
-			],
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"helperAttributes": "[]",
-			"id": "8cff84ad-6a83-290a-d219-2539b24f0517",
-			"method": "POST",
-			"name": "Create",
-			"pathVariableData": [],
-			"pathVariables": [],
-			"preRequestScript": null,
-			"queryParams": [],
-			"responses": [],
-			"tests": null,
-			"url": "http://localhost:3000/api/contact_type"
-		},
-		{
-			"id": "9135f274-67c4-ca86-5e2a-e2febeaea2d4",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_type",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "name",
-					"type": "text",
-					"value": "test_name"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "description",
-					"type": "text",
-					"value": "test_description"
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498433354096,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "9319be21-80c0-f6be-457a-c7b0f8136324",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_review",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "source",
-					"type": "text",
-					"value": "test_source"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "subject",
-					"type": "text",
-					"value": "test_subject"
-				},
-				{
-					"key": "body",
-					"value": "test_body",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "customer_id",
-					"value": "10",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "product_id",
-					"value": "test_product",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498432306655,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "94f67389-a4ca-427b-3724-fca926bd0b6b",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/company_addresses",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498408780321,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"currentHelper": "normal",
-			"data": null,
-			"dataMode": "params",
-			"description": "",
-			"folder": "bea728b8-cdee-4964-c854-84c8ca93bbfc",
-			"headerData": [],
-			"headers": "",
-			"helperAttributes": {},
-			"id": "9521e96a-371c-c570-6772-cacb7f9a85e2",
-			"method": "DELETE",
-			"name": "Delete by id",
-			"pathVariableData": [],
-			"pathVariables": {},
-			"preRequestScript": null,
-			"queryParams": [],
-			"responses": [],
-			"tests": null,
-			"time": 1498430901537,
-			"url": "localhost:3000/api/customer_contact_record/2",
-			"version": 2
-		},
-		{
-			"id": "9ced2ae0-1640-8ed7-7f5f-5a59d8a10f39",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"url": "localhost:3000/api/department",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [
-				{
-					"key": "name",
-					"value": "dept_name",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "dept_description",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498355144536,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "10c23fab-ee97-14bc-ca5e-6a65ac99df63"
-		},
-		{
-			"id": "9f26ca16-2961-dc58-e1c0-cb76af4c8196",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/opportunity/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498434423423,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "a4d83711-8a35-bfe4-eb28-a929c31335fd",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_reviews",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498432240820,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "a5528300-07c8-6a0f-8412-b9f2bed27260",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_review/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498432242995,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "a7b39b12-0f37-b926-3129-05379779a68c",
-			"headers": "",
-			"url": "localhost:3000/api/department/1",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498355148208,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "10c23fab-ee97-14bc-ca5e-6a65ac99df63"
-		},
-		{
-			"id": "ac22fc5b-31c2-801d-d68c-a74c1d57a90b",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_information_types",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431515664,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "b1f8e11c-4325-bb29-0482-c22176669bed",
-			"headers": "",
-			"url": "localhost:3000/api/department/4",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498355178871,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "10c23fab-ee97-14bc-ca5e-6a65ac99df63"
-		},
-		{
-			"id": "b5f36eea-6ab7-6c2d-349f-8f1f2834da34",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/product",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"enabled": true,
-					"key": "sku",
-					"type": "text",
-					"value": "251"
-				},
-				{
-					"enabled": true,
-					"key": "trim",
-					"type": "text",
-					"value": "test_trim"
-				},
-				{
-					"enabled": true,
-					"key": "color",
-					"type": "text",
-					"value": "test_color"
-				},
-				{
-					"enabled": true,
-					"key": "inventory",
-					"type": "text",
-					"value": "5"
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498436877964,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "b6e1f133-468d-66a7-41ae-082615c05acf",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/company_prediction/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498409342239,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "b83886b9-5abc-6209-e737-85da3e3c0c2d",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/customer_contact_record/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498430987186,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"subject\": \"new_subject\",\n\t\t\"start_date_time\": \"2017-06-26 16:54:28\",\n\t\t\"end_date_time\": \"2017-06-26 20:54:28\",\n\t\t\"description\": \"new_desc\",\n\t\t\"notes\": \"new_notes\"\n\t}\n}"
-		},
-		{
-			"id": "bc5e5e9f-52d7-7081-ea93-db1848a78654",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/order_line_items",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437325238,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"currentHelper": "normal",
-			"data": [],
-			"dataMode": "raw",
-			"description": "",
-			"folder": "bea728b8-cdee-4964-c854-84c8ca93bbfc",
-			"headerData": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "Content-Type",
-					"value": "application/json"
-				}
-			],
-			"headers": "Content-Type: application/json\n",
-			"helperAttributes": {},
-			"id": "c4ca5344-bb51-00a6-9847-cc525af12de1",
-			"method": "PATCH",
-			"name": "Update by id",
-			"pathVariableData": [],
-			"pathVariables": {},
-			"preRequestScript": null,
-			"queryParams": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"subject\": \"new_subject\",\n\t\t\"start_date_time\": \"2017-06-26 16:54:28\",\n\t\t\"end_date_time\": \"2017-06-26 20:54:28\",\n\t\t\"description\": \"new_desc\",\n\t\t\"notes\": \"new_notes\"\n\t}\n}",
-			"responses": [],
-			"tests": null,
-			"time": 1498430987186,
-			"url": "localhost:3000/api/customer_contact_record/3",
-			"version": 2
-		},
-		{
-			"id": "c77dd288-c444-0201-4247-f223ac51c014",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/company_prediction",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"enabled": true,
-					"key": "name",
-					"type": "text",
-					"value": "test_name"
-				},
-				{
-					"enabled": true,
-					"key": "value",
-					"type": "text",
-					"value": "5"
-				},
-				{
-					"enabled": true,
-					"key": "date_predicted",
-					"type": "text",
-					"value": "2017-06-25 16:54:28"
-				},
-				{
-					"enabled": true,
-					"key": "company_id",
-					"type": "text",
-					"value": "5"
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498409702080,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"currentHelper": "normal",
-			"data": null,
-			"dataMode": "params",
-			"description": "",
-			"folder": "19ced866-f260-d6df-fb8b-452c9c421bee",
-			"headerData": [],
-			"headers": "",
-			"helperAttributes": "[]",
-			"id": "c7d8bd22-ecd5-aaa5-21e6-ac94bff719e2",
-			"method": "GET",
-			"name": "Get all",
-			"pathVariableData": [],
-			"pathVariables": [],
-			"preRequestScript": null,
-			"queryParams": [],
-			"responses": [],
-			"tests": null,
-			"url": "http://localhost:3000/api/contact_types"
-		},
-		{
-			"id": "c84bd90b-7893-62a2-bee3-900bc27aa30b",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/generation_type",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "name",
-					"value": "test_name_1",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "test_description",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429327449,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "ca52fb0b-54d7-eea5-8d5a-367bd855f7f5",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/products",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498436391994,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"currentHelper": "normal",
-			"data": null,
-			"dataMode": "params",
-			"description": "Notice a foreign key constraint exists",
-			"descriptionFormat": "html",
-			"folder": "19ced866-f260-d6df-fb8b-452c9c421bee",
-			"headerData": [],
-			"headers": "",
-			"helperAttributes": "[]",
-			"id": "cb89373b-da71-3c09-f2e2-1034c3d5aab6",
-			"method": "DELETE",
-			"name": "Delete",
-			"pathVariableData": [],
-			"pathVariables": [],
-			"preRequestScript": null,
-			"queryParams": [],
-			"responses": [],
-			"tests": null,
-			"url": "http://localhost:3000/api/contact_type/1"
-		},
-		{
-			"id": "cef25730-ce5b-e38f-d8cc-fa7f2b891d62",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer/9",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498430532834,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id":"97e41eee-47d9-c01b-f663-58b569f55358",
-			"headers":"",
-			"headerData":[],
-			"url":"localhost:3000/api/customer/dnn/10",
-			"queryParams":[],
-			"preRequestScript":null,
-			"pathVariables":{},
-			"pathVariableData":[],
-			"method":"GET",
-			"data":null,
-			"dataMode":"params",
-			"version":2,
-			"tests":null,
-			"currentHelper":"normal",
-			"helperAttributes":{},
-			"time":1498430540969,
-			"name":"Run DNN",
-			"description":"",
-			"collectionId":"10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses":[]
-		},
-		{
-			"id": "d43133cc-74c6-b7ab-614e-c4885691cbde",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/product/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498436866805,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "d532be14-4eb5-15c4-90bc-5ece44b52315",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/company_address",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "address_line_one",
-					"value": "test_address_line_one",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "address_line_two",
-					"value": "test_address_line_two",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "city",
-					"value": "test_city",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "province",
-					"value": "test_province",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "country",
-					"value": "test_country",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "postal_code",
-					"value": "test_postal_code",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "company_id",
-					"value": "5",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "address_type",
-					"value": "test_address_type",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498408868421,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "d5779978-0461-bb2c-32c4-7a3ee566a58b",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/company_prediction/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498409731813,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"name\": \"new_name\",\n\t\t\"value\": \"0\"\n\t}\n}"
-		},
-		{
-			"id": "d80f6943-fa86-1ae6-56de-60ba02918d79",
-			"headers": "",
-			"url": "localhost:3000/api/departments",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498354855238,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "10c23fab-ee97-14bc-ca5e-6a65ac99df63"
-		},
-		{
-			"id": "d92ccc65-b3b3-81ff-6169-4c9b442e228f",
-			"headers": "",
-			"url": "localhost:3000/api/employee/1",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "DELETE",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"data": null,
-			"dataMode": "params",
-			"name": "Delete by id",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1498348472809,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "8b3ebf18-d646-4c78-a368-d5135efa0bdb"
-		},
-		{
-			"id": "dcce7ffa-d14b-6ab5-1681-d28865878e55",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/product/4",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498436917623,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"sku\": \"new_sku\",\n\t\t\"trim\": \"new_trim\",\n\t\t\"color\": \"new_color\",\n\t\t\"inventory\": \"534\"\n\t}\n}"
-		},
-		{
-			"id": "df3148f3-2820-7454-efdc-b62bfc689a9a",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:3000/api/customer_informations",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431768277,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "e1f07b98-5105-2cfb-d6e1-8ad78b0f4b06",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_information_type",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"description": "",
-					"enabled": true,
-					"key": "name",
-					"type": "text",
-					"value": "test_name"
-				},
-				{
-					"description": "",
-					"enabled": true,
-					"key": "description",
-					"type": "text",
-					"value": "test_description"
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431526601,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "e50ffc31-8c40-7c99-317f-612f7712bf13",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/order/3",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437271125,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"customer_id\":\"8\",\n\t\t\"account_manager_id\":\"10\",\n\t\t\"total\":\"900\",\n\t\t\"date\":\"2017-06-25 16:54:28\"\n\t}\n}"
-		},
-		{
-			"id": "e85db056-7242-3cd9-66eb-952fe8428ff0",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:3000/api/customer_information_type/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498431670031,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"rawModeData": "{\n  \"updates\": {\n    \"name\": \"new_name\",\n    \"description\": \"new_description\"\n  }\n}"
-		},
-		{
-			"id": "e8d9df24-3941-b6cc-86fe-c56ce5035366",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/order/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437219067,
-			"name": "Delete by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "f0ff1c78-8839-f01c-1824-aaa901386d6b",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"url": "localhost:3000/api/employee",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"data": [
-				{
-					"key": "name",
-					"value": "test_name",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "description",
-					"value": "test_desc",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "phone",
-					"value": "test_phone",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "website",
-					"value": "test_website",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "country",
-					"value": "test_country",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "account_manager_id",
-					"value": "10",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "department_id",
-					"value": "1",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "fax",
-					"value": "test_fax",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "office_address",
-					"value": "test_office_address",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "email",
-					"value": "test_email",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"name": "Create",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1498348379108,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "67df2979-f978-3f78-8511-a5f57724291a"
-		},
-		{
-			"id": "f19350a4-b38c-72a7-a2bb-e84d55cc08eb",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/company_predictions",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498409347365,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "f617c347-9e44-2d0d-8ae4-462591d21c1d",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:3000/api/order",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"enabled": true,
-					"key": "customer_id",
-					"type": "text",
-					"value": "8"
-				},
-				{
-					"enabled": true,
-					"key": "account_manager_id",
-					"type": "text",
-					"value": "10"
-				},
-				{
-					"enabled": true,
-					"key": "total",
-					"type": "text",
-					"value": "500"
-				},
-				{
-					"enabled": true,
-					"key": "date",
-					"type": "text",
-					"value": "2017-06-25 16:54:28"
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437206299,
-			"name": "Create",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "f65cfe7d-3d22-6363-1fc9-2bafd17f1557",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/customer_contact_record/1",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498429624508,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "fb672775-1426-3c1e-d9bf-353061f99669",
-			"headers": "Content-Type: application/json\n",
-			"url": "localhost:3000/api/company/5",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498408033475,
-			"name": "Update by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "323f147b-1b10-a259-7f2d-05c4dc8ecd5e",
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"name\": \"new_name\",\n\t\t\"description\": \"new_description\",\n\t\t\"phone\": \"new_phone\",\n\t\t\"website\": \"new_website\",\n\t\t\"country\": \"new_country\"\n\t}\n}"
-		},
-		{
-			"id": "fbfa4335-440b-ddcd-b2b6-6461c235b7d1",
-			"headers": "",
-			"headerData": [],
-			"url": "localhost:3000/api/order_line_item/2",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498437308157,
-			"name": "Get by id",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": []
-		},
-		{
-			"id": "fdbcaf41-c23b-b68e-4db3-1c933849ceec",
-			"headers": "Content-Type: application/json\n",
-			"url": "localhost:3000/api/department/5",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PATCH",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498355361037,
-			"name": "Update",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "10c23fab-ee97-14bc-ca5e-6a65ac99df63",
-			"rawModeData": "{\n\t\"updates\": {\n\t\t\"name\": \"new_Name\",\n\t\t\"description\": \"new_description\"\n\t}\n}"
-		},
-		{
-			"id": "fe4658e0-ab17-664a-a032-42703cc2914f",
-			"headers": "",
-			"url": "localhost:3000/api/employees",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498407846623,
-			"name": "Get all",
-			"description": "",
-			"collectionId": "10dc2335-98ea-d364-1663-b81d3e476f4d",
-			"responses": [],
-			"folder": "67df2979-f978-3f78-8511-a5f57724291a"
+			]
 		}
 	]
 }
