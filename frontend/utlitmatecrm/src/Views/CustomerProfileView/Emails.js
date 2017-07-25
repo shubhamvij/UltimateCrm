@@ -29,7 +29,7 @@ class Emails extends Component {
     return (
       
        <div className="mdc-elevation--z2">
-            <h3 className="mdc-list-group__subheader center">Customer Contact Info/Efforts</h3>
+            <h3 className="mdc-list-group__subheader center">Customer Contact Info</h3>
             <ul className="mdc-list">
                 {this.props.customer_informations.map(item => <CustomerInfo title={item.customer_information_type.name}
                     description={item.customer_information_type.description}/>)}
