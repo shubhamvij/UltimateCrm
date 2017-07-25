@@ -31,7 +31,7 @@ const RADIAN = Math.PI / 180;
 class IssueView extends Component {
   constructor(){
     super();
-    this.state = {issues:[], filter:'all', tab:'user', showInput: false, form_title: '', form_notes: '', form_cus_id: ''};
+    this.state = {issues:[], filter:'all', tab:'user', showInput: false, form_title: '', form_notes: '', form_cus_id: '', form_issue_type_id: '1'};
   }
 
   componentDidMount(){
@@ -100,11 +100,11 @@ class IssueView extends Component {
             "updated_at": date.toISOString(),
             "title": this.state.form_title,
             "priority": 1,
-            "issue_type_id": 1,
+            "issue_type_id": this.state.form_issue_type_id,
             "issue_notes": this.state.form_notes
           })
         }).then(() => {
-          this.setState({form_cus_id: 0, form_title: '', form_notes: '', showInput: false});
+          this.setState({form_cus_id: '', form_title: '', form_notes: '', form_issue_type_id: '1', showInput: false});
           this.fetchIssues()});
   }
 
@@ -142,6 +142,12 @@ class IssueView extends Component {
                              value={this.state.form_cus_id}
                              onChange={this.handleInputChange}/>
                     </div>
+                      <select className="mdc-select" name="form_issue_type_id" value={this.state.form_issue_type_id} onChange={this.handleInputChange}>
+                        <option value='1'>Manufacturing Defect</option>
+                        <option value='2'>Worn Part</option>
+                        <option value='3'>Paint</option>
+                        <option value='4'>User Error</option>
+                      </select>
                     <div className="mdc-textfield mdc-textfield--fullwidth">
                       <input className="mdc-textfield__input"
                              type="text"
