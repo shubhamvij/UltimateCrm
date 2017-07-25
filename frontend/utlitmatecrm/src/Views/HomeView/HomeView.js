@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom'
-import { BarChart, PieChart, Bar, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell } from 'recharts';
+import { BarChart, PieChart, Bar, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, RadarChart, Radar ,PolarGrid ,PolarAngleAxis ,PolarRadiusAxis } from 'recharts';
 
 import '../../material.css';
+import './home.css'
 
 let customerTypeId = "1"
 let companyTypeId = "2"
@@ -99,13 +100,19 @@ class HomeView extends Component {
 
 const RADIAN = Math.PI / 180; 
       
+//      const dataPie = this.state.customerStagePieGraph;
+      const data = this.state.customerStagePieGraph;
+      console.log(this.state.customerStagePieGraph);
     return (
         <div>
+            <center><h1> RECREATION USA CRM </h1>
+        
             <div className="mdc-layout-grid">
                   <div className="mdc-layout-grid__inner">
                 <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-                      <BarChart width={600} height={300} data={this.state.customerStageBarGraph}
-                                    margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                       <h3> Customer Classification Breakdown</h3>
+                      <BarChart className="barPadding" width={600} height={300} data={this.state.customerStageBarGraph}
+                                    margin={{top: 20, right: 30, left: 20, bottom: 5}}>
                                <XAxis dataKey="name"/>
                                <YAxis/>
                                <CartesianGrid strokeDasharray="3 3"/>
@@ -116,25 +123,17 @@ const RADIAN = Math.PI / 180;
                               </BarChart>
                     </div>
                     <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-                      
-                      <PieChart width={600} height={300} onMouseEnter={this.onPieEnter}
-                            margin={{top: 0, right: 0, left: 0, bottom: 0}}>
-                        <CartesianGrid strokeDasharray="3 3"/>
-                        <Tooltip/>
-                        <Legend />
-                        <Pie
-                          data={this.state.customerStagePieGraph} 
-                          cx={120} 
-                          cy={200} 
-                          innerRadius={60}
-                          outerRadius={80} 
-                          fill="#8884d8"
-                          paddingAngle={5}>
-                            {
-                                this.state.customerStagePieGraph.map((entry, index) => <Cell dataKey={entry.name} fill={COLORS[index % COLORS.length]}/>)
-                            }
-                        </Pie>
-                    </PieChart>
+                        <h3>Aggregate Customer Classification Stage</h3>
+                      {data && 
+                        <RadarChart className="otherPadding" cx={300} cy={250} outerRadius={150} width={600} height={500} data={data} margin={{top: -20, right: 30, left: 20, bottom: 5}}>
+                          <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>
+                          <PolarGrid />
+                          <PolarAngleAxis dataKey="name" />
+                          <PolarRadiusAxis/>
+                        </RadarChart> 
+                    }
+                              
+        
                     </div>
                                                                                       
                                                                                       
@@ -142,7 +141,7 @@ const RADIAN = Math.PI / 180;
                     
                </div>    
         
-        
+         </center>
       </div>
     );
   }
