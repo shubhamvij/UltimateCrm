@@ -16,7 +16,7 @@ class ForecastsView extends Component {
                         <img  src={require("../../graph1.png")} />
                         <h1>  Sales by Customer Type (USD$) </h1>
                         <img  src={require("../../graph2.png")} />
-
+                        <RevenueBarChart/>
                     </div>
                   </div>
                </div>    
