@@ -60,7 +60,8 @@ module.exports = function(app) {
             customer_id: req.body.customer_id,
             account_manager_id: req.body.account_manager_id,
             total: req.body.total,
-            date: req.body.date
+            date: req.body.date,
+            notes: req.body.notes
         }).then(function(order) {
             res.header('Content-Type', 'application/json');
             res.json(order);
