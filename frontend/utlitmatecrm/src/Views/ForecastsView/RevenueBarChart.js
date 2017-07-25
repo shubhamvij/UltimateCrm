@@ -6,7 +6,6 @@ import customer_values from '../../data/customer_values.js';
 import { BarChart, PieChart, Bar, Pie, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const margin = {top: 10, right: 20, bottom: 30, left: 40};
-//var BarChart = require('react-d3-basic').BarChart;
 
 class RevenueBarChart extends React.Component{
     constructor() {
@@ -22,19 +21,19 @@ class RevenueBarChart extends React.Component{
     }
 
     componentDidMount(){
-        fetch(`http://rectum.herokuapp.com/api/customer/` + this.props.customer_id)
+        /*fetch(`http://rectum.herokuapp.com/api/customer/` + this.props.customer_id)
             .then(result=>result.json())
-            .then(customerData=>this.setState({customerData}))
+            .then(customerData=>this.setState({customerData}))*/
     }
 
     render() {
-        console.log(this.state.customerData.customer_est_lifetime_values);
+        console.log(this.props.est_value);
         return (
             <div>
 
-                <BarChart width={this.width} height={this.height} data={this.state.customerData.customer_est_lifetime_values}
-                          margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                    <XAxis dataKey="date"/>
+                <BarChart width={this.width} height={this.height} data={this.props.est_value}
+                          margin={{top: 5, right: 30, left: 30, bottom: 5}}>
+                    <XAxis dataKey="date" label="Time" />
                     <YAxis dataKey="value"/>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
