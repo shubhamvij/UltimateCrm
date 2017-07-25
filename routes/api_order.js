@@ -23,6 +23,8 @@ module.exports = function(app) {
 
     app.post('/api/integration/orders', function(req, res) {
         var skus = []
+        console.log("Just got order from SM");
+        console.log(req.body);
         for (var i = 0; i < req.body.skus_purchased.length; i++) {
             for(var k in req.body.skus_purchased[i]) {
                 if(req.body.skus_purchased[i].hasOwnProperty(k)) {
@@ -30,6 +32,7 @@ module.exports = function(app) {
                 }
             }
         }
+        console.log(skus);
         models.product.findAll({
             where: {
                 sku: {

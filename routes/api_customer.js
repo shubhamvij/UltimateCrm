@@ -99,6 +99,8 @@ module.exports = function(app) {
 
 
   app.post('/api/integration/customers', function(req, res) {
+    console.log("Just got customer from SM");
+    console.log(req.body);
     var applicable_attributes = {
       id: req.body.id,
       first_name: req.body.first_name,
