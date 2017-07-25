@@ -5,10 +5,14 @@ import { render } from 'react-dom'
 import '../../material.css';
 import './accountsView.css'
 
+let customerTypeId = "1"
+let companyTypeId = "2"
+
+
 class NewCustomer extends Component {
     constructor() {
   	 super();
-     this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: "4", company_name: "", description: "",
+     this.state={first_name:"", last_name:"", title:"", office_phone:"", other_phone:"", email:"", customer_type_id: customerTypeId, company_name: "", description: "",
                  picture: ""};
     
     this.handleCustomerTypeChange = this.handleCustomerTypeChange.bind(this);
@@ -16,7 +20,7 @@ class NewCustomer extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     }
     createNewCustomer() {
-        fetch('http://localhost:3000/api/customer', {
+        fetch('http://rectum.herokuapp.com/api/customer/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -65,10 +69,10 @@ class NewCustomer extends Component {
                 <h3>New Customer</h3>
             
                 <select className="mdc-select" value={this.state.customer_type_id} onChange={this.handleCustomerTypeChange}>
-                  <option value="5">Distributor</option>
-                  <option value="4">Individual</option>
+                  <option value={companyTypeId}>Distributor</option>
+                  <option value={customerTypeId}>Individual</option>
                 </select>
-                {this.state.customer_type_id === "4" &&
+                {this.state.customer_type_id === customerTypeId &&
                         <div>
                         <div className="mdc-textfield mdc-textfield--fullwidth">
                           <input className="mdc-textfield__input"
@@ -90,7 +94,7 @@ class NewCustomer extends Component {
                         </div>
                         </div>
                 }
-                {this.state.customer_type_id === "5" &&
+                {this.state.customer_type_id === companyTypeId &&
                         <div>
                         <div className="mdc-textfield mdc-textfield--fullwidth">
                           <input className="mdc-textfield__input"
@@ -192,7 +196,7 @@ class AccountsView extends Component {
      this.state={customers:[], newCustomer:false};
   }
   componentDidMount(){
-    fetch(`http://localhost:3000/api/customers`)
+    fetch(`http://rectum.herokuapp.com/api/customers/`)
         .then(result=>result.json())
         .then(customers=>this.setState({customers}))
     
@@ -219,14 +223,14 @@ class AccountsView extends Component {
                     <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
                         Individuals
                         {this.state.customers.filter(function(customer){
-                          return customer.customer_type_id === 4;
+                          return customer.customer_type_id === parseInt(customerTypeId);
                         }).map(item => <Customer clickCallback={this.clickCustomerCallback} customerId={item.id} name={item.first_name + " " + item.last_name} />)}
                         
                     </div>
                     <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
                         Distributors
                         {this.state.customers.filter(function(customer){
-                          return customer.customer_type_id === 5;
+                          return customer.customer_type_id === parseInt(companyTypeId);
                         }).map(item => <Customer clickCallback={this.clickCustomerCallback}  customerId={item.id} name={item.company.name} />)}
                     </div>
                 </div>

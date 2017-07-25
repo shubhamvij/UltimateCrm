@@ -9,11 +9,17 @@ import ForecastsView from './Views/ForecastsView/ForecastsView';
 import HomeView from './Views/HomeView/HomeView';
 import IssueView from './Views/IssueView/IssueView';
 import StratManagementView from './Views/StratManagementView/StratManagementView';
+import LoginView from './Views/LoginView/LoginView.js'
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+console.log(cookies.get('myCat')); // Pacman
+
 
 class ActiveView extends Component {
     
     render() {
         const viewName = this.props.activeViewName;
+
         if (viewName === 'Accounts') {
             return <AccountsView navigateToCustomerPage={this.props.navigateToCustomerPage}/>;
           } else if (viewName === 'Strategy') {
@@ -36,6 +42,7 @@ class App extends Component {
   componentDidMount() {
      this.setState({currentView: 'Home', activeCustomerId: "-1"}); 
      this.navigateToCustomerPage = this.navigateToCustomerPage.bind(this);
+     this.authenticateCallback = this.authenticateCallback.bind(this);
 
   }
 
@@ -50,8 +57,18 @@ class App extends Component {
     }
 
  
+    authenticateCallback(isAuthSuccess) {
+     if (isAuthSuccess) {
+         cookies.set('auth', 'YES', { path: '/' });
+         this.setState({currentView: 'Home'});
+     }
+    }
         
   render() {
+        let authenticated = cookies.get('auth');
+        if (authenticated !== 'YES') {
+            return <LoginView authenticateCallback={this.authenticateCallback}/>;
+        }
 
     return (
       
