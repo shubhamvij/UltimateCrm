@@ -38,10 +38,10 @@ class NewCustomer extends Component {
             "fax":"",
             "email":this.state.email,
             "description":"",
-            "generated_through_id": 6,
+            "generated_through_id": 1,
             "customer_type_id": this.state.customer_type_id,
-            "company_id":8,
-            "account_manager_id":23
+            "company_id":1,
+            "account_manager_id":9
           })
         }).then(() => this.props.modalActive())
         
