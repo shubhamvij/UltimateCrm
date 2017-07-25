@@ -19,7 +19,7 @@ class CustomerProfileView extends Component {
     
 
  componentDidMount(){
-    fetch(`http://localhost:3000/api/customer/` + this.props.activeCustomerId)
+    fetch(`http://rectum.herokuapp.com/api/customer/` + this.props.activeCustomerId)
         .then(result=>result.json())
         .then(customerData=>this.setState({customerData}))
   }

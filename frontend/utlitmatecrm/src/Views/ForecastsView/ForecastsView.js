@@ -12,16 +12,11 @@ class ForecastsView extends Component {
             <div className="mdc-layout-grid">
                   <div className="mdc-layout-grid__inner">
                     <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-                        <h1> Projected Sales by Customer (2017, Net Sales, USD$) </h1>
-                        <img  src={require("../../graph1.png")} />
                         <h1>  Sales by Customer Type (USD$) </h1>
-                        <img  src={require("../../graph2.png")} />
-                        <RevenueBarChart/>
+                        <RevenueBarChart customer_id={6}> </RevenueBarChart>
                     </div>
                   </div>
-               </div>    
-        
-        
+               </div>
       </div>
     );
   }
