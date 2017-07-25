@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom'
 
 import '../../material.css';
+import './forecastView.css'
 import RevenueBarChart from './RevenueBarChart';
 const customerTypeId = "1";
 const companyTypeId = "2";
@@ -81,7 +82,23 @@ class ForecastsView extends Component {
                         <RevenueBarChart est_value={this.state.est_value}> </RevenueBarChart>
                     </div>
                   </div>
-               </div>
+            </div>
+            <div className="mdc-layout-grid">
+                  <div className="mdc-layout-grid__inner">
+                    <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+                        <h1>Projected Sales by Customer Type (USD$) </h1>
+                        <img className="" src={require("../../graph1.png")}/>
+                    </div>
+                  </div>
+            </div>
+             <div className="mdc-layout-grid">
+                  <div className="mdc-layout-grid__inner">
+                    <div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                        <h1>Domestic VS International Sales (USD$) </h1>
+                        <img className="img-standard-graph-size" src={require("../../graph2.png")}/>
+                    </div>
+                  </div>
+            </div>
         </div>
     );
   }
