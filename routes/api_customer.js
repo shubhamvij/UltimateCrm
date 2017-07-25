@@ -291,7 +291,7 @@ module.exports = function(app) {
             estimatedTotal = customer.customer_est_lifetime_values[customer.customer_est_lifetime_values.length - 1].value;
           }
           if (lastTotal > secondLastTotal) {
-            estimatedTotal + = fiveYears / timeDiff * (lastTotal - secondLastTotal) * 1.7;
+            estimatedTotal += fiveYears / timeDiff * (lastTotal - secondLastTotal) * 1.7;
             models.customer_est_lifetime_value.create({
               customer_id: customer.id,
               date: new Date().toISOString(),
