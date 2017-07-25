@@ -22,7 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     office_address: DataTypes.STRING,
     description: DataTypes.TEXT('long'),
     generated_through_id: DataTypes.INTEGER,
-    est_lifetime_value: DataTypes.INTEGER,
     amt_purchased: DataTypes.INTEGER,
     notes: DataTypes.TEXT('long'),
     next_steps: DataTypes.TEXT('long'),
@@ -46,6 +45,11 @@ module.exports = function(sequelize, DataTypes) {
     customer.hasMany(models.customer_review);
     customer.hasMany(models.order);
     customer.hasMany(models.issue);
+    customer.hasMany(models.opportunities_employee);
+    customer.belongsToMany(models.opportunity, {
+      through: models.opportunities_employee
+    });
+    customer.hasMany(models.customer_est_lifetime_value);
   }
 
   return customer;

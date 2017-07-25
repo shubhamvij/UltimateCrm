@@ -21,6 +21,49 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/api/integration/orders', function(req, res) {
+        var skus = []
+        for (var i = 0; i < req.body.skus_purchased.length; i++) {
+            for(var k in req.body.skus_purchased[i]) {
+                if(req.body.skus_purchased[i].hasOwnProperty(k)) {
+                    skus.push(k);
+                }
+            }
+        }
+        models.product.findAll({
+            where: {
+                sku: {
+                    $in: skus
+                }
+            }
+        }).then(function(products) {
+            var product_map = {};
+            for(var i = 0; i < products.length; i++) {
+                product_map[products[i].sku] = products[i].id;
+            }
+            models.order.create({
+                id: req.body.id,
+                customer_id: req.body.customer_id,
+                account_manager_id: req.body.sales_rep_id,
+                notes: req.body.customer_notes,
+                total: req.body.total_sales
+            }).then(function(order) {
+                for(i = 0; i < req.body.skus_purchased.length; i++) {
+                    for(var k in req.body.skus_purchased[i]) {
+                        if(req.body.skus_purchased[i].hasOwnProperty(k)) {
+                            models.order_line_item.create({
+                                product_id: product_map[k],
+                                quantity: req.body.skus_purchased[i][k],
+                                order_id: order.id
+                            });
+                        }
+                    }
+                }
+                res.end();
+            });
+        });
+    });
+
     app.get('/api/order/:id', function(req, res) {
         const id = req.params.id;
         models.order.find({
@@ -60,7 +103,8 @@ module.exports = function(app) {
             customer_id: req.body.customer_id,
             account_manager_id: req.body.account_manager_id,
             total: req.body.total,
-            date: req.body.date
+            date: req.body.date,
+            notes: req.body.notes
         }).then(function(order) {
             res.header('Content-Type', 'application/json');
             res.json(order);
