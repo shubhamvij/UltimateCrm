@@ -1,6 +1,12 @@
 .app {
 }
 
+.logout {
+    right: 10px;
+    top: 10px;
+    position:absolute;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -10,6 +16,7 @@
     position: relative;
     left: 90px;
     top: 20px;
+    align-content: flex-start !important; 
 }
 
 .App-header {

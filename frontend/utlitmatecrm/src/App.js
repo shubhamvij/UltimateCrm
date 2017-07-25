@@ -43,6 +43,7 @@ class App extends Component {
      this.setState({currentView: 'Home', activeCustomerId: "-1"}); 
      this.navigateToCustomerPage = this.navigateToCustomerPage.bind(this);
      this.authenticateCallback = this.authenticateCallback.bind(this);
+     this.logout = this.logout.bind(this);
 
   }
 
@@ -51,11 +52,19 @@ class App extends Component {
     console.log(this.state.currentView);
   }
 
+    logout(e) {
+        console.log("Logout");
+        cookies.set('auth', 'NO', { path: '/' });
+        this.setState({currentView: 'None'});
+
+    }
+
     
     navigateToCustomerPage(id) {
      this.setState({activeCustomerId: id, currentView: 'Customer'});
     }
 
+    
  
     authenticateCallback(isAuthSuccess) {
      if (isAuthSuccess) {
@@ -65,8 +74,7 @@ class App extends Component {
     }
         
   render() {
-        let authenticated = cookies.get('auth');
-        if (authenticated !== 'YES') {
+        if (cookies.get('auth') !== 'YES') {
             return <LoginView authenticateCallback={this.authenticateCallback}/>;
         }
 
@@ -83,17 +91,21 @@ class App extends Component {
                 <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Accounts')}>
                     Accounts
                 </button>
-            <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Strategy')}>
+                <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Strategy')}>
                     Strategy Management
                 </button>
-            <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Forecasts')}>
+                <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Forecasts')}>
                     Forecasts
                 </button>
-            <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Issue')}>
+                <button className="mdc-button mdc-button--accent" onClick={() => this.handleLoginClick('Issue')}>
                     Issue Management
                 </button>
+               
             </div>
-
+            <button className="logout" onClick={() => this.logout()}>
+                    logout
+            </button>
+            
         </div>
         
         <ActiveView activeViewName={this.state.currentView} activeCustomerId={this.state.activeCustomerId} 

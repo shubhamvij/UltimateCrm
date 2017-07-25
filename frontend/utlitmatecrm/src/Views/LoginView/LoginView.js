@@ -86,24 +86,37 @@ class LoginView extends Component {
     console.log(username);
     console.log(password);
       
-      fetch('https://hummus-api.herokuapp.com/api/sign-in', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            "username": username,
-	         "password": password 
-          })
-        }).then(result=>result.json())
-          .then(value=>{
-            console.log("Returned from Call");
-            console.log(value);
-            if(value) {
-                this.props.authenticateCallback(true);
-            }
-          })
+      if (password === "api") {
+        fetch(`http://rectum.herokuapp.com/api/employees/`)
+        .then(result=>result.json())
+        .then(employees=>{
+            for (var i = 0; i < employees.length; i ++){
+                if (username === employees[i].username){
+                    this.props.authenticateCallback(true);
+                }
+            } 
+         })      
+      }
+      
+      
+//      fetch('http://rectum.herokuapp.com/api/employees', {
+//          method: 'POST',
+//          headers: {
+//            'Accept': 'application/json',
+//            'Content-Type': 'application/json',
+//          },
+//          body: JSON.stringify({
+//            "username": username,
+//	         "password": password 
+//          })
+//        }).then(result=>result.json())
+//          .then(value=>{
+//            console.log("Returned from Call");
+//            console.log(value);
+//            if(value) {
+//                this.props.authenticateCallback(true);
+//            }
+//          })
 
   }
 
